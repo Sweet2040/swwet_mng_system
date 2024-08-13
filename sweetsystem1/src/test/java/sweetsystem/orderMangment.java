@@ -1,5 +1,8 @@
 package sweetsystem;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,6 +11,7 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 
 public class orderMangment {
+	private OrderManagementService orderManagementService = new OrderManagementService();
 
     private OrderService orderService; // Assuming an OrderService class handles order operations
     private String currentOrderId;
@@ -27,20 +31,19 @@ public class orderMangment {
 
     @When("I create a new order with details {string}")
     public void iCreateANewOrderWithDetails(String details) {
-        // Code to create a new order with the provided details
-        currentOrderId = orderService.createOrder(details);
-        System.out.println("Created order with ID: " + currentOrderId);
+        orderManagementService.createOrder("ORDER1", details);
+        Order order = orderManagementService.getOrderById("ORDER1");
+        assertNotNull("Order was not created and stored properly", order); // Additional check
     }
 
     @Then("the order should be processed successfully")
     public void theOrderShouldBeProcessedSuccessfully() {
-        // Code to verify that the order was processed successfully
-        boolean isProcessed = orderService.isOrderProcessed(currentOrderId);
-        if (!isProcessed) {
-            throw new AssertionError("The order was not processed successfully. Order ID: " + currentOrderId);
-        }
-        System.out.println("Order processed successfully.");
+        Order order = orderManagementService.getOrderById("ORDER1");
+        assertNotNull("Order should not be null", order);
+        assertEquals("The order was not processed successfully.", "Processed", order.getStatus());
     }
+
+    
 
     @Given("I have created an order with details {string}")
     public void iHaveCreatedAnOrderWithDetails(String details) {
