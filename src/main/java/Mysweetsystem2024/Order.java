@@ -14,6 +14,11 @@ public class Order {
         this.status = status;
         this.details = details;
     }
+    public Order(String orderId, String details) {
+        this.orderId = orderId;
+        this.details = details;
+        this.status = "Pending";
+    }
     public Order(String orderId, String status, LocalDateTime creationTime) {
         this.orderId = orderId;
         this.status = status;
