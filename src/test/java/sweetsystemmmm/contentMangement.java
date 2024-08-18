@@ -16,10 +16,7 @@ package sweetsystemmmm;
 	    private String confirmationMessage;
 	    private String responseMessage;
 
-	    @Given("I am logged in as an Admin")
-	    public void iAmLoggedInAsAnAdmin() {
-	        // Assuming successful admin login
-	    }
+	 
 
 	    @When("I navigate to the {string} section")
 	    public void iNavigateToTheSection(String section) {

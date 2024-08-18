@@ -1,0 +1,2 @@
+hala:1|Product: cake, Quantity: 2, Customer: aya|New
+hala:6|Product: cheesecake, Quantity: 1, Customer: nuha|Shipped

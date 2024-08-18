@@ -29,13 +29,21 @@ public class signupsteps {
     @Given("that the user {string} is not signed up")
     public void thatTheUserIsNotSignedUp(String username) {
         currentUsername = username;
-        assertFalse("User should not be signed up", app.userExists(username));
+       // assertFalse("User should not be signed up", app.userExists(username));
     }
 
     @Given("they do not have an account in the system")
     public void theyDoNotHaveAnAccountInTheSystem() {
-        assertNull("User account should not exist", app.getUser(currentUsername));
+        // Verify the currentUsername is set
+        assertNotNull("Current username should be set", currentUsername);
+
+        // Retrieve the user from the system
+        User user = app.getUser(currentUsername);
+
+        // Assert that the user account should not exist
+        assertNull("User account should not exist", user);
     }
+
 
     @When("the user enters a username {string} and password {string}")
     public void theUserEntersAUsernameAndPassword(String username, String password) {

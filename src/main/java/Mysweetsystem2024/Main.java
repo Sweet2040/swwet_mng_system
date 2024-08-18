@@ -1074,7 +1074,7 @@ class ProductManagementPage extends JPanel {
  }
 }
 
-//Communication Page
+//Communication Page work here
 class CommunicationPage extends JPanel {
 
  public CommunicationPage() {
