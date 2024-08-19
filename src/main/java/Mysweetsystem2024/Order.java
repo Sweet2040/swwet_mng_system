@@ -21,7 +21,20 @@ public class Order {
 	        this.storeOwnerName = storeOwnerName;
 	        this.creationTime = LocalDateTime.now(); 
 	    }
-
+	    public Order(String orderId, String details) {
+	        this.orderId = orderId;
+	        String[] parts = details.split(",");
+	        if (parts.length == 5) {  // Ensure there are enough details provided
+	            this.status = parts[0].trim();
+	            this.productName = parts[1].trim();
+	            this.quantity = parts[2].trim();
+	            this.customerName = parts[3].trim();
+	            this.storeOwnerName = parts[4].trim();
+	        } else {
+	            throw new IllegalArgumentException("Invalid details format. Expected 5 comma-separated values.");
+	        }
+	        this.creationTime = LocalDateTime.now(); // Set the creation time to the current time
+	    }
 	    // Getters and setters
 
 	    public String getOrderId() { return orderId; }

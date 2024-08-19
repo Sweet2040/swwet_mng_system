@@ -1138,13 +1138,12 @@ public class MyApplication {
         tabbedPane.addTab("Product Management", createProductManagementPanel());
         tabbedPane.addTab("Sales & Profits", createSalesProfitsPanel());
         tabbedPane.addTab("Communication & Notifications", createCommunicationNotificationPanel());
-        tabbedPane.addTab("Account Management", createAccountManagementPanel());
+        tabbedPane.addTab("Account Management",createOwnerAccountManagementPanel());
         tabbedPane.addTab("Order Management", createOrderManagementPanel());
 
         frame.add(tabbedPane);
         frame.setVisible(true);
     }
-    
     
     private JPanel createCommunicationNotificationPanel() {
         JPanel panel = new JPanel();
@@ -1188,7 +1187,7 @@ public class MyApplication {
                 String recipient = recipientField.getText().trim();
                 String message = messageArea.getText().trim();
                 if (!recipient.isEmpty() && !message.isEmpty()) {
-                    saveNotification(recipient, message);
+                    saveNotification(currentUser, recipient, message);
                     JOptionPane.showMessageDialog(panel, "Message sent to " + recipient + "!");
                 } else {
                     JOptionPane.showMessageDialog(panel, "Recipient and message cannot be empty.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -1202,6 +1201,20 @@ public class MyApplication {
         viewEmailMessagesButton.addActionListener(e -> showReceivedEmailMessages(currentUser));
 
         return panel;
+    }
+
+    // Method to save the message to a file based on the recipient
+    private void saveNotification(String sender, String recipient, String message) {
+        String filename = recipient + "-messages.txt";
+        String notification = "Store owner " + sender + " sent a message to " + recipient + ":\n" + message + "\n\n";
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true))) {
+            writer.write(notification);
+            writer.flush(); // Ensure the data is written to the file
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Failed to save the message.", "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
     }
 
     // Method to display email messages
@@ -1681,6 +1694,70 @@ public class MyApplication {
             }
         }
     }
+    private JPanel createOwnerAccountManagementPanel() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+
+        JPanel accountDetailsPanel = new JPanel();
+        accountDetailsPanel.setLayout(new GridLayout(5, 2, 10, 10));
+        
+        JLabel usernameLabel = new JLabel("Store Owner Name:");
+        JTextField usernameField = new JTextField(15);
+        
+        JLabel emailLabel = new JLabel("Email:");
+        JTextField emailField = new JTextField(15);
+        
+        JLabel cityLabel = new JLabel("City:");
+        JTextField cityField = new JTextField(15);
+        
+        JLabel passwordLabel = new JLabel("Password:");
+        JPasswordField passwordField = new JPasswordField(15);
+        
+        JButton updateButton = new JButton("Update Account");
+
+        accountDetailsPanel.add(usernameLabel);
+        accountDetailsPanel.add(usernameField);
+        accountDetailsPanel.add(emailLabel);
+        accountDetailsPanel.add(emailField);
+        accountDetailsPanel.add(cityLabel);
+        accountDetailsPanel.add(cityField);
+        accountDetailsPanel.add(passwordLabel);
+        accountDetailsPanel.add(passwordField);
+        accountDetailsPanel.add(new JLabel()); 
+        accountDetailsPanel.add(updateButton);
+
+        updateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String username = usernameField.getText().trim();
+                String email = emailField.getText().trim();
+                String city = cityField.getText().trim();
+                String password = new String(passwordField.getPassword()).trim();
+
+                if (username.isEmpty() || email.isEmpty() || city.isEmpty() || password.isEmpty()) {
+                    JOptionPane.showMessageDialog(panel, "All fields are required.");
+                    return;
+                }
+
+                String currentUsername = getCurrentUsername(); // Fetch the current store owner's username
+                User user = users.get(currentUsername);
+                if (user != null) {
+                    user.setUsername(username);
+                    user.setEmail(email);
+                    user.setCountry(city);
+                    user.setPassword(password);
+                    saveUsers();  
+                    JOptionPane.showMessageDialog(panel, "Account details updated successfully.");
+                } else {
+                    JOptionPane.showMessageDialog(panel, "Store owner not found.");
+                }
+            }
+        });
+
+        panel.add(accountDetailsPanel, BorderLayout.CENTER);
+
+        return panel;
+    }
 
   
     
@@ -1707,7 +1784,6 @@ public class MyApplication {
     
     
     
-
     private JPanel createAccountManagementPanel() {
     	JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
@@ -1725,7 +1801,7 @@ public class MyApplication {
         JLabel emailLabel = new JLabel("Email:");
         JTextField emailField = new JTextField(15);
         
-        JLabel countryLabel = new JLabel("Country:");
+        JLabel countryLabel = new JLabel("City:");
         JTextField countryField = new JTextField(15);
         
         JLabel passwordLabel = new JLabel("Password:");
@@ -1791,6 +1867,7 @@ public class MyApplication {
 
         return panel;
     }
+
         
     
     private String getCurrentUsername() {
