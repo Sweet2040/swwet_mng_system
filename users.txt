@@ -21,3 +21,4 @@ yousef,112233,yousef@gmail.com,Nablus,STORE_OWNER
 safaa,444444,safa@gmail.com,Ramallah,STORE_OWNER
 nuhha,12345,nuha@gmail.com,Ramallah,REGULAR_USER
 hala,333333,hala@gmail.com,Nablus,STORE_OWNER
+nonexistent,password123,defaultEmail@example.com,Palestine,REGULAR_USER
