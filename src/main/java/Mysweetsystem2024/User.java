@@ -19,7 +19,7 @@ public class User {
         confirmationMessage = "Message sent to store owner with subject: " + subject;
         return confirmationMessage;
     }
-    public User(String username, String password, String country, String email, UserRole role) {
+    public User(String username, String password, String email, String country, UserRole role) {
         this.username = username;
         this.password = password;
         this.role = role;
