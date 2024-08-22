@@ -1,174 +1,186 @@
 package sweetsystemmmm;
 
 
+
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import static org.junit.Assert.*;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
-import static org.junit.Assert.*;
+import Mysweetsystem2024.LoginManager;
+import Mysweetsystem2024.User;
+import Mysweetsystem2024.UserRole;
 
 public class loginsteps {
 
     private String username;
     private String password;
     private boolean loginSuccess;
-
-    private static final Map<String, String> rolePasswords = new HashMap<>();
-    private static final Set<String> loggedInUsers = new HashSet<>();
-
-    static {
-        rolePasswords.put("nuha", "111111");
-        rolePasswords.put("shahd","222222");  
-        rolePasswords.put("hala", "333333");      
-        rolePasswords.put("safa", "444444");     
+    private  LoginManager loginManager;
+    private static final Map<String, User> users = new HashMap<>();
+    @Before
+    public void setUp() {
+        // Initialize the LoginManager with some sample users
+        Map<String, User> users = new HashMap<>();
+        users.put("shahd", new User("shahd", "password123", "ADMIN"));
+        users.put("admin1", new User("admin1", "adminpass", "ADMIN"));
+        // Add more users as needed
+        loginManager = new LoginManager(users);
     }
+    // Initialize LoginManager with a dummy map of users
 
-    @Given("that the user {string} is not logged in")
-    public void thatTheUserIsNotLoggedIn(String username) {
-        this.username = username;
-        loggedInUsers.remove(username);
-    }
+
+  
 
     @Given("that the admin {string} is not logged in")
     public void thatTheAdminIsNotLoggedIn(String username) {
         this.username = username;
-        loggedInUsers.remove(username);
+        loginManager.logout(username); // Ensure the admin is logged out
+        assertFalse("Admin should not be logged in", loginManager.isUserLoggedIn(username));
     }
 
-    @Given("that the owner {string} is not logged in")
-    public void thatTheOwnerIsNotLoggedIn(String username) {
+
+    @Then("{string} login {string}")
+    public void loginStatus(String role, String status) {
+        boolean shouldBeLoggedIn = status.equals("succeeds");
+        assertEquals("Login status check failed", shouldBeLoggedIn, loginManager.isUserLoggedIn(this.username));
+        assertEquals("Login success check failed", shouldBeLoggedIn, loginSuccess);
+    }
+
+    @Then("user login succeeds")
+    public void userLoginSucceeds() {
+        assertTrue("User should be logged in", loginManager.isUserLoggedIn(this.username));
+        assertTrue("Login should be successful", loginSuccess);
+    }
+
+    @Then("user login fails")
+    public void userLoginFails() {
+        assertFalse("User should not be logged in", loginManager.isUserLoggedIn(this.username));
+        assertFalse("Login should not be successful", loginSuccess);
+    }
+
+    @Then("admin login succeeds")
+    public void adminLoginSucceeds() {
+        assertTrue("Admin should be logged in", loginManager.isUserLoggedIn(this.username));
+        assertTrue("Login should be successful", loginSuccess);
+    }
+
+    @Then("admin login fails")
+    public void adminLoginFails() {
+        assertFalse("Admin should not be logged in", loginManager.isUserLoggedIn(this.username));
+        assertFalse("Login should not be successful", loginSuccess);
+    }
+
+    @Then("owner login succeeds")
+    public void ownerLoginSucceeds() {
+        assertTrue("Owner should be logged in", loginManager.isUserLoggedIn(this.username));
+        assertTrue("Login should be successful", loginSuccess);
+    }
+
+    @Then("owner login fails")
+    public void ownerLoginFails() {
+        assertFalse("Owner should not be logged in", loginManager.isUserLoggedIn(this.username));
+        assertFalse("Login should not be successful", loginSuccess);
+    }
+
+    @Then("supplier login succeeds")
+    public void supplierLoginSucceeds() {
+        assertTrue("Supplier should be logged in", loginManager.isUserLoggedIn(this.username));
+        assertTrue("Login should be successful", loginSuccess);
+    }
+
+    @Then("supplier login fails")
+    public void supplierLoginFails() {
+        assertFalse("Supplier should not be logged in", loginManager.isUserLoggedIn(this.username));
+        assertFalse("Login should not be successful", loginSuccess);
+    }
+    @Given("that the user {string} is not logged in")
+    public void thatTheUserIsNotLoggedIn(String username) {
         this.username = username;
-        loggedInUsers.remove(username);
+        loginManager = new LoginManager(users);
+        // Ensure the user is not logged in before the test
+        if (loginManager.isUserLoggedIn(username)) {
+            loginManager.logout(username);
+        }
     }
-
-    @Given("that the supplier {string} is not logged in")
-    public void thatTheSupplierIsNotLoggedIn(String supplierName) {
-        this.username = supplierName;
-        loggedInUsers.remove(supplierName);
-    }
-    
-    
-
-    
-    
-
-
-
-
 
     @When("user tries to login")
     public void userTriesToLogin() {
-        this.password = rolePasswords.getOrDefault(this.username, "nuha");
-    }
-
-    @When("admin tries to login")
-    public void adminTriesToLogin() {
-        this.password = rolePasswords.getOrDefault(this.username, "shahd");
-    }
-
-    @When("owner tries to login")
-    public void ownerTriesToLogin() {
-        this.password = rolePasswords.getOrDefault(this.username, "hala");
-    }
-
-    @When("supplier tries to login")
-    public void supplierTriesToLogin() {
-        this.password = rolePasswords.getOrDefault(this.username, "safa");
+        loginManager = new LoginManager(users);
+        loginSuccess = loginManager.login(username, password);
     }
 
     @When("password is {string}")
     public void passwordIs(String password) {
         this.password = password;
-        loginSuccess = rolePasswords.containsKey(this.username) && rolePasswords.get(this.username).equals(password);
-        if (loginSuccess) {
-            loggedInUsers.add(this.username);
-        } else {
-            loggedInUsers.remove(this.username);
+    }
+
+    @Then("user login {string}")
+    public void userLoginStatus(String status) {
+        boolean shouldBeLoggedIn = status.equals("succeeds");
+        assertEquals("Login success check failed", shouldBeLoggedIn, loginSuccess);
+        // Also verify the login status in the LoginManager
+        assertEquals("User login status check failed", shouldBeLoggedIn, loginManager.isUserLoggedIn(username));
+    }
+
+
+
+    @Then("admin login {string}")
+    public void adminLoginStatus(String status) {
+        boolean shouldBeLoggedIn = status.equals("succeeds");
+        assertEquals("Login success check failed", shouldBeLoggedIn, loginSuccess);
+        assertEquals("Admin login status check failed", shouldBeLoggedIn, loginManager.isUserLoggedIn(username));
+    }
+
+    @Given("that the owner {string} is not logged in")
+    public void thatTheOwnerIsNotLoggedIn(String username) {
+        this.username = username;
+        loginManager = new LoginManager(users);
+        if (loginManager.isUserLoggedIn(username)) {
+            loginManager.logout(username);
         }
     }
 
-    @Then("the user login succeeds")
-    public void theUserLoginSucceeds() {
-        assertTrue("User should be logged in", loggedInUsers.contains(this.username));
+    @When("owner tries to login")
+    public void ownerTriesToLogin() {
+        loginManager = new LoginManager(users);
+        loginSuccess = loginManager.login(username, password);
+    }
+    @When("admin tries to login")
+    public void adminTriesToLogin() {
+    	 loginManager = new LoginManager(users);
+         loginSuccess = loginManager.login(username, password);
+    }
+    @Then("owner login {string}")
+    public void ownerLoginStatus(String status) {
+        boolean shouldBeLoggedIn = status.equals("succeeds");
+        assertEquals("Login success check failed", shouldBeLoggedIn, loginSuccess);
+        assertEquals("Owner login status check failed", shouldBeLoggedIn, loginManager.isUserLoggedIn(username));
     }
 
-    @Then("the admin login succeeds")
-    public void theAdminLoginSucceeds() {
-        assertTrue("Admin should be logged in", loggedInUsers.contains(this.username));
+    @Given("that the supplier {string} is not logged in")
+    public void thatTheSupplierIsNotLoggedIn(String username) {
+        this.username = username;
+        loginManager = new LoginManager(users);
+        if (loginManager.isUserLoggedIn(username)) {
+            loginManager.logout(username);
+        }
     }
 
-    @Then("the owner login succeeds")
-    public void theOwnerLoginSucceeds() {
-        assertTrue("Owner should be logged in", loggedInUsers.contains(this.username));
+    @When("supplier tries to login")
+    public void supplierTriesToLogin() {
+        loginManager = new LoginManager(users);
+        loginSuccess = loginManager.login(username, password);
     }
 
-    @Then("the supplier login succeeds")
-    public void theSupplierLoginSucceeds() {
-        assertTrue("Supplier should be logged in", loggedInUsers.contains(this.username));
-    }
-
-    @Then("the user is logged in")
-    public void theUserIsLoggedIn() {
-        assertTrue("User should be logged in", loggedInUsers.contains(this.username));
-    }
-
-    @Then("the admin is logged in")
-    public void theAdminIsLoggedIn() {
-        assertTrue("Admin should be logged in", loggedInUsers.contains(this.username));
-    }
-
-    @Then("the owner is logged in")
-    public void theOwnerIsLoggedIn() {
-        assertTrue("Owner should be logged in", loggedInUsers.contains(this.username));
-    }
-
-    @Then("the supplier is logged in")
-    public void theSupplierIsLoggedIn() {
-        assertTrue("Supplier should be logged in", loggedInUsers.contains(this.username));
-    }
-
-    @Then("the user login fails")
-    public void theUserLoginFails() {
-        assertFalse("User should not be logged in", loginSuccess);
-    }
-
-    @Then("the user is not logged in")
-    public void theUserIsNotLoggedIn() {
-        assertFalse("User should not be logged in", loggedInUsers.contains(this.username));
-    }
-
-    @Then("the admin login fails")
-    public void theAdminLoginFails() {
-        assertFalse("Admin should not be logged in", loginSuccess);
-    }
-
-    @Then("the admin is not logged in")
-    public void theAdminIsNotLoggedIn() {
-        assertFalse("Admin should not be logged in", loggedInUsers.contains(this.username));
-    }
-
-    @Then("the owner login fails")
-    public void theOwnerLoginFails() {
-        assertFalse("Owner should not be logged in", loginSuccess);
-    }
-
-    @Then("the owner is not logged in")
-    public void theOwnerIsNotLoggedIn() {
-        assertFalse("Owner should not be logged in", loggedInUsers.contains(this.username));
-    }
-
-    @Then("the supplier login fails")
-    public void theSupplierLoginFails() {
-        assertFalse("Supplier should not be logged in", loginSuccess);
-    }
-
-    @Then("the supplier is not logged in")
-    public void theSupplierIsNotLoggedIn() {
-        assertFalse("Supplier should not be logged in", loggedInUsers.contains(this.username));
+    @Then("supplier login {string}")
+    public void supplierLoginStatus(String status) {
+        boolean shouldBeLoggedIn = status.equals("succeeds");
+        assertEquals("Login success check failed", shouldBeLoggedIn, loginSuccess);
+        assertEquals("Supplier login status check failed", shouldBeLoggedIn, loginManager.isUserLoggedIn(username));
     }
 }
