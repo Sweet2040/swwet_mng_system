@@ -7,7 +7,19 @@
   <artifactId>sweetsystem</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
-  
+
+ 
+  <properties>
+  <sonar.organization>sweet2040</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
+
+
+
+
+
+
+    
   
   <dependencies>
   <dependency>
