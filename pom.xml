@@ -17,8 +17,11 @@
     <maven.compiler.source>8</maven.compiler.source> <!-- Java source version -->
     <maven.compiler.target>8</maven.compiler.target> <!-- Java target version -->
   </properties>
+        <properties>
+  <sonar.coverage.jacoco.xmlReportPaths>../app-it/target/site/jacoco-aggregate/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+</properties>
+ 
 <dependencies>
-    <!-- Cucumber dependencies -->
     <dependency>
         <groupId>io.cucumber</groupId>
         <artifactId>cucumber-java</artifactId>
