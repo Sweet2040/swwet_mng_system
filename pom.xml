@@ -17,10 +17,35 @@
     <maven.compiler.source>8</maven.compiler.source> <!-- Java source version -->
     <maven.compiler.target>8</maven.compiler.target> <!-- Java target version -->
   </properties>
+<dependencies>
+    <!-- Cucumber dependencies -->
+    <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-java</artifactId>
+        <version>7.11.0</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-junit</artifactId>
+        <version>7.11.0</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-junit-platform-engine</artifactId>
+        <version>7.11.0</version>
+        <scope>test</scope>
+    </dependency>
 
-  <dependencies>
-    <!-- Your dependencies go here -->
-  </dependencies>
+    <!-- JUnit dependency -->
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.13.2</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
 
   <build>
     <plugins>
