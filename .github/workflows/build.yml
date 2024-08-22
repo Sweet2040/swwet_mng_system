@@ -1,4 +1,5 @@
 name: SonarCloud
+
 on:
   push:
     branches:
@@ -42,4 +43,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B  jacoco:prepare-agent  verify  org.sonarsource.scanner.maven:sonar-maven-plugin:sonar jacoco:report  -Dsonar.projectKey=Sweet2040_swwet_mng_system
+        run: mvn -B clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+          -Dsonar.projectKey=Sweet2040_swwet_mng_system \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+
