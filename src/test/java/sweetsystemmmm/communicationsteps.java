@@ -12,6 +12,7 @@ public class communicationsteps {
     private String messageSubject;
     private String messageBody;
     private String emailContent;
+	private MyApplication app;
   public communicationsteps (MyApplication app) {
     	this.app=app;}
     @Given("I am logged in as a Store Owner")
