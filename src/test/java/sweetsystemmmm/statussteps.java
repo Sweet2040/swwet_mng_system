@@ -4,7 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 
-
+import Mysweetsystem2024.MyApplication;
 
 import static org.junit.Assert.*;
 
@@ -22,8 +22,17 @@ public class statussteps {
 
 	
 
+	  MyApplication app;
+
+	
+
 	    private Order order;
 	    
+	    
+	    public statussteps(MyApplication app) {
+	    	this.app=app;
+	    	//this.order=new Order(app);
+	    }
 	    @Given("I have an order with status {string}")
 	    public void iHaveAnOrderWithStatus(String status) {
 	        // Create an order with the given status, assume default values for other fields
