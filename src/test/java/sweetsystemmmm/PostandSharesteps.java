@@ -72,7 +72,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-
+import Mysweetsystem2024.MyApplication;
 import Mysweetsystem2024.Post;  // Import the Post class
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -139,6 +139,11 @@ public class PostandSharesteps {
 	    private boolean postSuccess;
 	    private String errorMessage;
 
+	   private  MyApplication app;
+	    public PostandSharesteps(MyApplication app) {
+	    	this.app=app;
+	    }
+	    
 	    @Given("the user {string} is logged in")
 	    public void theUserIsLoggedIn(String username) {
 	        this.username = username;
