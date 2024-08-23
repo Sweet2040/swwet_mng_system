@@ -14,6 +14,7 @@ public class commusersteps {
 		    private User user;
 		    private String confirmationMessage;
 		    private boolean feedbackRecorded;
+	private MyApplication app;
 public commusersteps (MyApplication app) {
 		    	this.app=app;}
 		    @Given("I am logged in as a registered user")
