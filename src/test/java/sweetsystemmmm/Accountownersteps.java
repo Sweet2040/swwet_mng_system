@@ -4,6 +4,7 @@ import io.cucumber.java.en.*;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import Mysweetsystem2024.MyApplication;
 public class Accountownersteps {
 
 
@@ -12,7 +13,9 @@ public class Accountownersteps {
     private String businessInformation;
     private boolean detailsUpdatedSuccessfully = false;
     private boolean businessInfoUpdatedSuccessfully = false;
-
+ private  MyApplication app;
+    public Accountownersteps (MyApplication app) {
+    	this.app=app;}
   
 
     @Given("I am on the account management page")
