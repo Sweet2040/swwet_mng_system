@@ -46,7 +46,7 @@ public class LoginManager {
 
     public boolean logout(String username) {
         if (username == null) {
-            System.out.println("Username cannot be null.");
+        	//System.out.println("Username cannot be null.");
             return false;
         }
         if (loggedInUsers.remove(username)) {
