@@ -7,36 +7,20 @@ import java.util.HashSet;
 public class LoginManager {
     private final Map<String, User> users;
     private final Set<String> loggedInUsers; // To track logged-in users
-    
+    private MyApplication app;
     
     private String currentUser;
+
+    
+    
+    
+   
 
     public LoginManager(Map<String, User> users) {
         this.users = users;
         this.loggedInUsers = new HashSet<>();
     }
-/*
-    public boolean login(String username, String password) {
-        if (username == null || password == null) {
-            System.out.println("Username or password cannot be null.");
-            return false;
-        }
-        User user = users.get(username);
-        if (user == null) {
-            System.out.println("The username does not exist in the system.");
-            return false;
-        }
-        if (user.getPassword().equals(password)) {
-            loggedInUsers.add(username);  // Track successful login
-            return true;
-        } else {
-            System.out.println("Wrong password, please try again.");
-            return false;
-        }
-    }
-    
-    
-    */
+
     public boolean login(String username, String password) {
         if (validateLogin(username, password)) {
             this.currentUser = username; // Set the currentUser to the logged-in username
@@ -77,3 +61,4 @@ public class LoginManager {
         return loggedInUsers.contains(username);
     }
 }
+
