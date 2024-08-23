@@ -1,79 +1,66 @@
 package Mysweetsystem2024;
 
 public class Post {
+    private String description;
+    private String image;
+    private String status;
+    private String username;
 
-	
-	 private String description;
-	    private String image;
-	    private String status; 
-	    private String username;
-	    
-	   // public Post(String description, String image, String status) {
-	     //   this.description = description;
-	       // this.image = image;
-	        //this.status = status;
-	    //}
-	    public Post(String username, String imagePath, String text) {
-	        this.username = username;
-	        this.image = imagePath;
-	        this.description = text;
-	    }
-	    public Post(String imagePath, String text) {
-	        this.image = imagePath;
-	        this.description = text;
-	    }
+    // Constructor with username
+    public Post(String username, String imagePath, String text) {
+        this.username = username;
+        this.image = imagePath;
+        this.description = text;
+        this.status = "active"; // Default status if needed
+    }
 
-	    public String getDescription() {
-	        return description;
-	    }
+    // Constructor without username
+    public Post(String imagePath, String text) {
+        this(null, imagePath, text); // Delegate to the other constructor with default username
+    }
 
-	    public String getUsername() {
-	        return username;
-	    }
-	    public void setDescription(String description) {
-	        this.description = description;
-	    }
+    // Getters and Setters
+    public String getDescription() {
+        return description;
+    }
 
-	  
-	    public String getImage() {
-	        return image;
-	    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	   
-	    public void setImage(String image) {
-	        this.image = image;
-	    }
+    public String getImage() {
+        return image;
+    }
 
-	   
-	    public String getStatus() {
-	        return status;
-	    }
+    public void setImage(String image) {
+        this.image = image;
+    }
 
-	    
-	    public void setStatus(String status) {
-	        this.status = status;
-	    }
+    public String getStatus() {
+        return status;
+    }
 
-	    
-	    public String displayPostDetails() {
-	        return "Description: " + description + ", Image: " + image + ", Status: " + status;
-	    }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-	    @Override
-	    public String toString() {
-	        return "Post{" +
-	                "description='" + description + '\'' +
-	                ", image='" + image + '\'' +
-	                ", status='" + status + '\'' +
-	                '}';
-	    }
-	
-	
-	
-	
-	
-	
-	
-	
-	
+    public String getUsername() {
+        return username;
+    }
+
+    // Display post details
+    public String displayPostDetails() {
+        return "Description: " + description + ", Image: " + image + ", Status: " + status;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "description='" + description + '\'' +
+                ", image='" + image + '\'' +
+                ", status='" + status + '\'' +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }
+
