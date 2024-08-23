@@ -50,10 +50,10 @@ public class MyApplication {
     public MyApplication() {
         users = new HashMap<>();
         loginManager = new LoginManager(users);
-        loadUserData();
-        showLoginFrame();
+       // loadUserData();
+       // showLoginFrame();
     }
-
+/*
     private void initializeUsers() {
         
         users.put("nuha", new User("nuha", "111111", "nuha@gmail.com", "Nablus", UserRole.REGULAR_USER));
@@ -3125,9 +3125,16 @@ private void loadUsers(List<String> storeOwners, List<String> suppliers) {
     public User getUser(String username) {
         return users.get(username);
     }
-    public void addUser(User user) {
+    public boolean addUser(User user) {
+        if (userExists(user.getUsername())) {
+            return false;
+        }
         users.put(user.getUsername(), user);
-        saveUsers();
+        return true;
+    
+       // saveUsers();
+        
+        
     }
 // read  users from file
     private void loadUserData() {
@@ -3164,6 +3171,35 @@ private void loadUsers(List<String> storeOwners, List<String> suppliers) {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new MyApplication());
        
+    }
+    */
+    public void signUpUser(String username, String password, String email, String country, UserRole role) {
+        if (!userExists(username)) {
+            users.put(username, new User(username, password, email, country, role));
+            //saveUsers(); 
+        }
+    }
+
+    public boolean userExists(String username) {
+        return users.containsKey(username);
+    }
+
+    
+ 
+
+    public User getUser(String username) {
+        return users.get(username);
+    }
+    public boolean addUser(User user) {
+        if (userExists(user.getUsername())) {
+            return false;
+        }
+        users.put(user.getUsername(), user);
+        return true;
+    
+       // saveUsers();
+        
+        
     }
     
 }
