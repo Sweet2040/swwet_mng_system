@@ -1,5 +1,6 @@
 package sweetsystemmmm;
 import io.cucumber.java.en.*;
+import Mysweetsystem2024.MyApplication;
 import java.util.HashMap;
 import java.util.Map;
 public class contentsteps {
@@ -16,7 +17,9 @@ public class contentsteps {
     private String confirmationMessage;
     private String responseMessage;
 
- 
+ private  MyApplication app;
+    public contentsteps (MyApplication app) {
+    	this.app=app;}
 
     @When("I navigate to the {string} section")
     public void iNavigateToTheSection(String section) {
