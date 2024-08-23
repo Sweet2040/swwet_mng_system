@@ -131,12 +131,7 @@
       <version>1.6.2</version>
     </dependency>
 
-    <!-- Placeholder dependency -->
-    <dependency>
-      <groupId>unknown.binary</groupId>
-      <artifactId>AbsoluteLayout</artifactId>
-      <version>SNAPSHOT</version>
-    </dependency>
+  
   </dependencies>
 </project>
 
