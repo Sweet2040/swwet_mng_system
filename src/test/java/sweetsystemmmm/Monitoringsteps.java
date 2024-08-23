@@ -14,7 +14,10 @@ public class Monitoringsteps {
     private String financialReport;
     private String bestSellingProductsReport;
     private String userStatisticsReport;
-
+ private  MyApplication app;
+    public Monitoringsteps(MyApplication app) {
+    	this.app=app;
+    }
     @Given("I am logged in as an Admin")
     public void iAmLoggedInAsAnAdmin() {
         system = new Test(); // Initialize your system
