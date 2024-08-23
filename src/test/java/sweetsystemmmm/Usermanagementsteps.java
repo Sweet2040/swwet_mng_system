@@ -17,7 +17,7 @@ public class Usermanagementsteps {
     private UserRepositry userRepository;
     private StoreOwner createdUser;
     private boolean isUserDeleted;
- MyApplication app;
+ private MyApplication app;
     
     
     public Usermanagementsteps(MyApplication app) {
