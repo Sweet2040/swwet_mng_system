@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
+import Mysweetsystem2024.MyApplication;
 public class Explorationsteps {
 
     private String searchQuery;
@@ -17,7 +17,9 @@ public class Explorationsteps {
     private String errorMessage;
     private String currentPage;
     private String selectedDessert;
-
+ private  MyApplication app;
+    public Explorationsteps (MyApplication app) {
+    	this.app=app;}
     @Given("the user is on the dessert recipes page")
     public void theUserIsOnTheDessertRecipesPage() {
         // Set the current page to dessert recipes page
