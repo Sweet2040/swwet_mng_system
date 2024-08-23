@@ -16,12 +16,6 @@ public class signupmanager {
         app.addUser(newUser);
         return true; 
     }
-    
-    
-
-       
-      
-    
 
     
 }
