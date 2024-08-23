@@ -22,7 +22,7 @@ public class statussteps {
 
 	
 
-	  MyApplication app;
+	 private  MyApplication app;
 
 	
 
