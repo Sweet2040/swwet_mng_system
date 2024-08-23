@@ -23,7 +23,7 @@ public class ProductManagementsteps {
     private double updatedPrice;
     private double discountValue;
     private String message;
-    MyApplication app;
+  private  MyApplication app;
 
     public ProductManagementsteps(MyApplication app ) {
         productManagement = new productmgt();
