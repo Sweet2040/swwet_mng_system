@@ -11,6 +11,7 @@ public class Order {
 	    private String customerName;
 	    private String storeOwnerName;
 	    private LocalDateTime creationTime;
+	    private String details;
 
 	    public Order(String orderId, String status, String productName, String quantity, String customerName, String storeOwnerName) {
 	        this.orderId = orderId;
@@ -22,8 +23,19 @@ public class Order {
 	        this.creationTime = LocalDateTime.now(); 
 	    }
 
-	    // Getters and setters
+	    public LocalDateTime getCreationTime() {
+			return creationTime;
+		}
 
+		public void setCreationTime(LocalDateTime creationTime) {
+			this.creationTime = creationTime;
+		}
+
+		// Getters and setters
+	    public Order(String details) {
+            this.setDetails(details);
+            this.status = "Created";
+        }
 	    public String getOrderId() { return orderId; }
 	    public String getStatus() { return status; }
 	    public String getProductName() { return productName; }
@@ -61,4 +73,12 @@ public class Order {
         boolean isCreatedRecently = creationTime.isAfter(LocalDateTime.now().minusHours(24)); 
         return isNewStatus || isCreatedRecently;
     }
+
+	public String getDetails() {
+		return details;
+	}
+
+	public void setDetails(String details) {
+		this.details = details;
+	}
 }
