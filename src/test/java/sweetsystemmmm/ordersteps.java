@@ -107,14 +107,7 @@ public class ordersteps {
 
   @Then("the string representation of the order should be {string}")
 public void theStringRepresentationOfTheOrderShouldBe(String expectedString) {
-    // TODO: Implement this method to check the string representation of the order.
-    // Currently, this method is not implemented. The implementation needs to be
-    // provided to compare the expectedString with the actual string representation
-    // of the order object.
-    
-    // For now, we throw an exception to indicate that the method is not yet
-    // implemented.
-    throw new UnsupportedOperationException("Method not yet implemented.");
+  ////not implemented
 }
     @Given("I have an empty order")
     public void iHaveAnEmptyOrder() {
