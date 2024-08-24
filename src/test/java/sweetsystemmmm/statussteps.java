@@ -13,20 +13,12 @@ import Mysweetsystem2024.Order;
 import java.time.LocalDateTime;
 public class statussteps {
 
-	
-
-
-	
-
-	 private  MyApplication app;
-
-	
 
 	    private Order order;
 	    
 	    
-	    public statussteps(MyApplication app) {
-	    	this.app=app;
+	    public statussteps() {
+	    	
 	    	//this.order=new Order(app);
 	    }
 	    @Given("I have an order with status {string}")
