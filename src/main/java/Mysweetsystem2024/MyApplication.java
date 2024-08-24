@@ -20,25 +20,7 @@ import java.awt.event.ActionListener;
 
 public class MyApplication {
     private Map<String, User> users;
-    private LoginManager loginManager;
-    private static final String FILE_PATH = "users.txt";
-    
-    
-    
-    
-    /////may edit 
-    private static final String POSTS_FILE = "dessert_creations.txt";
-    
-    
-    ////
-    private static final String DESSERT_CREATIONS_FILE = "dessert_creations.txt";
-    private static final String IMAGES_DIR = "images/";
-    
-    private JTextArea descriptionTextArea;
-    private JButton uploadImageButton;
-    private File selectedImageFile;
-    
-    private String currentUser; 
+   
 
     
     
