@@ -8,7 +8,7 @@ import static org.junit.Assert.assertTrue;
 import Mysweetsystem2024.MyApplication;
 import Mysweetsystem2024.User;
 import Mysweetsystem2024.UserRole;
-import Mysweetsystem2024.signupmanager;
+import Mysweetsystem2024.SignupManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -16,14 +16,14 @@ import io.cucumber.java.en.When;
 public class signupsteps {
 
     private MyApplication app;
-    private signupmanager signupManager;
+    private SignupManager signupManager;
     private String currentUsername;
     private String currentPassword;
     private boolean signUpResult;
 
     public signupsteps(MyApplication app) {
         this.app = app;
-        this.signupManager = new signupmanager(app);
+        this.signupManager = new SignupManager(app);
     }
 
     @Given("that the user {string} is not signed up")
