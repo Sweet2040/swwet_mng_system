@@ -4,8 +4,7 @@ package Mysweetsystem2024;
 public class StoreOwner extends User {
     private String storeName;
     private String storeAddress;
-
-
+    
     public StoreOwner(String username, String password, String email, String country, String storeName, String storeAddress) {
         super(username, password, country, email);
         this.storeName = storeName;
