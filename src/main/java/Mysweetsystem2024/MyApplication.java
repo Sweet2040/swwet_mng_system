@@ -25,12 +25,12 @@ public class MyApplication {
         users = new HashMap<>();
         loginManager = new LoginManager(users);
        
-       // showLoginFrame();
+      
     }
     public void signUpUser(String username, String password, String email, String country, UserRole role) {
         if (!userExists(username)) {
             users.put(username, new User(username, password, email, country, role));
-            //saveUsers(); 
+            
         }
     }
 
@@ -51,7 +51,7 @@ public class MyApplication {
         users.put(user.getUsername(), user);
         return true;
     
-       // saveUsers();
+      
         
         
     }
