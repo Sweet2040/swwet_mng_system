@@ -1,4 +1,4 @@
-package Mysweetsystem2024;
+package mysweetsystem;
 public class Admin {
 	private UserRepositry userRepository;
 
