@@ -8,7 +8,7 @@ import static org.junit.Assert.assertTrue;
 
 
 
-import mysweetsystem.ProductMgt;
+import Mysweetsystem2024.ProductMgt;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
