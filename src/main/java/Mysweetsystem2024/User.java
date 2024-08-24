@@ -28,8 +28,8 @@ public class User {
   
    
 public boolean submitProductFeedback(String rating, String comment) {
-        boolean feedbackRecorded = true;  // Declared as a local variable
-        return feedbackRecorded;
+          
+        return true;
     }
 
 	
