@@ -9,7 +9,7 @@ public class Accountownersteps {
 
 
 
-    private String accountDetails;
+  
     private String businessInformation;
     private boolean detailsUpdatedSuccessfully = false;
     private boolean businessInfoUpdatedSuccessfully = false;
