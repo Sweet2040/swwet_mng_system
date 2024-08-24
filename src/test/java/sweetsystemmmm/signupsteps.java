@@ -87,18 +87,18 @@ public class signupsteps {
         assertFalse("User should be prompted to try again", signUpResult);
     }
 
-   @Then("the account is not saved in the system")
-public void theAccountIsNotSavedInTheSystem() {
-    User user = app.getUser(currentUsername);
-
-    if (app.userExists(currentUsername)) {
-        assertNotNull("User account should already exist", user);
-        assertEquals("User account should not be newly created", currentUsername, user.getUsername());
-    } else {
-        assertNull("User account should not be saved", user);
+  @Then("the account is not saved in the system")
+    public void theAccountIsNotSavedInTheSystem() {
+        User user = app.getUser(currentUsername);
+        
+        // If the sign-up attempt fails, the account should not be saved.
+        if (app.userExists(currentUsername)) {
+            assertNotNull("User account should already exist", user);
+            assertTrue("User account should not be newly created", user.getUsername().equals(currentUsername));
+        } else {
+            assertNull("User account should not be saved", user);
+        }
     }
-}
-
     
 }
 
