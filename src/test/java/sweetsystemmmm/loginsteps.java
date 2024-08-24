@@ -14,7 +14,7 @@ import java.util.Map;
 import Mysweetsystem2024.LoginManager;
 import Mysweetsystem2024.User;
 
-import Mysweetsystem2024.MyApplication;
+
 public class loginsteps {
 
     private String username;
@@ -34,9 +34,11 @@ public class loginsteps {
     // Initialize LoginManager with a dummy map of users
 
 
-   private  MyApplication app;
-    public loginsteps(MyApplication app) {
-    	this.app=app;}
+
+    public loginsteps() {
+        //hi
+    	}
+    
 
     @Given("that the admin {string} is not logged in")
     public void thatTheAdminIsNotLoggedIn(String username) {
