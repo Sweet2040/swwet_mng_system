@@ -15,17 +15,10 @@ public class statussteps {
 	    private Order order;
 	    
 	    
-	     public statussteps(MyApplication app) {
-        // This constructor is used to initialize the statussteps class with an instance of MyApplication.
-        // If you intend to use this constructor in the future, make sure to initialize any necessary fields here.
-    }
-
-    // This default constructor is intentionally left empty. 
-    // It may be used in cases where the statussteps class needs to be instantiated without parameters,
-    // but currently, it does not support such instantiation.
+	 
     public statussteps() {
         // Throwing an exception to indicate that this constructor is not supported or not intended for use.
-        throw new UnsupportedOperationException("Default constructor is not supported. Use the constructor with MyApplication parameter.");
+        
     }
 	    @Given("I have an order with status {string}")
 	    public void iHaveAnOrderWithStatus(String status) {
