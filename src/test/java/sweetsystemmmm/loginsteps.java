@@ -91,7 +91,7 @@ public class loginsteps {
 
     @Then("supplier login succeeds")
     public void supplierLoginSucceeds() {
-       // assertTrue("Supplier should be logged in", loginManager.isUserLoggedIn(this.username));
+       
         //assertTrue("Login should be successful", loginSuccess);
     }
 
