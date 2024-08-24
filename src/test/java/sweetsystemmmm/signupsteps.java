@@ -5,10 +5,10 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import Mysweetsystem2024.MyApplication;
-import Mysweetsystem2024.User;
-import Mysweetsystem2024.UserRole;
-import Mysweetsystem2024.SignupManager;
+import mysweetsystem.MyApplication;
+import mysweetsystem.User;
+import mysweetsystem.UserRole;
+import mysweetsystem.SignupManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
