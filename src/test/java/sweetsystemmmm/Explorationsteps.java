@@ -13,14 +13,11 @@ public class Explorationsteps {
     private boolean isSearchSuccessful;
     private boolean isFilterSuccessful;
     private boolean isPurchaseSuccessful;
-    private String errorMessage;// Reserved for future use to handle and display error messages
+    
     private String currentPage;
     private String selectedDessert;
  
-    public Explorationsteps () {
-        // This method is currently empty because it is not yet implemented.
-    // Future implementation will handle content steps logic.
-    	}
+
     @Given("the user is on the dessert recipes page")
     public void theUserIsOnTheDessertRecipesPage() {
         // Set the current page to dessert recipes page
@@ -37,7 +34,7 @@ public class Explorationsteps {
             System.out.println("User searched for: " + searchQuery);
         } else {
             isSearchSuccessful = false;
-            errorMessage = "Not on the dessert recipes page";
+           // Future use of error message can be implemented here
         }
     }
 
@@ -57,7 +54,7 @@ public class Explorationsteps {
             System.out.println("User filtered recipes by: " + filter);
         } else {
             isFilterSuccessful = false;
-            errorMessage = "Not on the dessert recipes page";
+           // Future use of error message can be implemented here
         }
     }
 
@@ -97,7 +94,7 @@ public class Explorationsteps {
             }
         } else {
             isPurchaseSuccessful = false;
-            errorMessage = "Not on the dessert details page";
+            // Future use of error message can be implemented here
         }
     }
 
