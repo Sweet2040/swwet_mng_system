@@ -5,18 +5,18 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static org.junit.Assert.*;
 
-import Mysweetsystem2024.MyApplication;
 import Mysweetsystem2024.Test;
 
 public class Monitoringsteps {
 
-    private Test system; // This should be your application class or service for interacting with the system
+    private Test system; 
     private String financialReport;
     private String bestSellingProductsReport;
     private String userStatisticsReport;
- private  MyApplication app;
-    public Monitoringsteps(MyApplication app) {
-    	this.app=app;
+
+    public Monitoringsteps() {
+    	// This method is currently empty because it has not been implemented yet.
+    // Future implementation will include logic to verify that
     }
     @Given("I am logged in as an Admin")
     public void iAmLoggedInAsAnAdmin() {
@@ -38,23 +38,23 @@ public class Monitoringsteps {
     public void iShouldSeeTheTotalProfitsForThePeriod() {
         assertNotNull(financialReport); // Check that the report was generated
 
-        // Example of expected values (you should adapt these based on your actual data)
+       
         String expectedTotalProfits = "Total Profits: $10000"; 
 
-        // Verify that the total profits are correctly displayed
+        
         assertTrue("Financial report does not contain expected total profits",
                    financialReport.contains(expectedTotalProfits));
         
-        // Optionally, you can check for additional details or specific content in the report
+      
         assertTrue("Financial report does not contain expected detailed report",
                    financialReport.contains("Detailed Report:"));
         
-        // If your report has a specific structure, you can further assert on parts of the report
+       
         String[] lines = financialReport.split("\n");
         assertTrue("Financial report is missing total profits line",
                    lines[0].contains(expectedTotalProfits));
 
-        // If there are more expected details, you can assert them similarly
+        
         assertTrue("Financial report is missing expected details",
                    financialReport.contains("Details here")); // Adjust as needed
     }
@@ -62,39 +62,39 @@ public class Monitoringsteps {
     @Then("I should see a detailed financial report")
     public void iShouldSeeADetailedFinancialReport() {
         assertNotNull(financialReport); // Check that the report is detailed
-        // Add assertions to verify the details of the report
+       
     }
 
     @When("I navigate to the Store Reports section")
     public void iNavigateToTheStoreReportsSection() {
-        system.navigateToSection("Store Reports"); // Method to navigate to the section
+        system.navigateToSection("Store Reports"); 
     }
 
     @When("I request the best-selling products report for all stores")
     public void iRequestTheBestSellingProductsReportForAllStores() {
-        bestSellingProductsReport = system.requestBestSellingProductsReport(); // Method to request the best-selling products report
+        bestSellingProductsReport = system.requestBestSellingProductsReport(); 
     }
 
     @Then("I should see a list of best-selling products for each store")
     public void iShouldSeeAListOfBestSellingProductsForEachStore() {
-        assertNotNull(bestSellingProductsReport); // Check that the report was generated
-        // Add assertions to verify the content of the report
+        assertNotNull(bestSellingProductsReport);
+       
     }
 
     @Then("the list should include the product names and sales figures")
     public void theListShouldIncludeTheProductNamesAndSalesFigures() {
-        assertNotNull(bestSellingProductsReport); // Check that the report contains the necessary information
-        // Add more detailed assertions based on your report format
+        assertNotNull(bestSellingProductsReport);
+        
     }
 
     @When("I navigate to the User Statistics section")
     public void iNavigateToTheUserStatisticsSection() {
-        system.navigateToSection("User Statistics"); // Method to navigate to the section
+        system.navigateToSection("User Statistics"); 
     }
 
     @When("I request user statistics by city")
     public void iRequestUserStatisticsByCity() {
-        userStatisticsReport = system.requestUserStatisticsByCity(); // Method to request user statistics by city
+        userStatisticsReport = system.requestUserStatisticsByCity(); 
     }
 
     @Then("I should see a list of cities with the number of registered users in each city")
