@@ -16,10 +16,7 @@ public class ordersteps {
     private boolean isOrderProcessed;
     private boolean isOrderCreated;
   
-    public ordersteps() {
-    	// This method is currently empty because it is not yet implemented.
-    // Future implementation will handle content steps logic.
-    }
+   
     @Given("I am logged in as a Store Owner or Raw Material Supplier")
     public void iAmLoggedInAsAStoreOwnerOrRawMaterialSupplier() {
         // Replace with actual login check if available
