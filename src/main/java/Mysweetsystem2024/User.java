@@ -58,10 +58,10 @@ public boolean submitProductFeedback(String rating, String comment) {
 		this.email=email2;
 	}
 
-		public User(String username, String email, String password, String role) {
+		public User(String username, String email, String password, String role1) {
 		 this.username = username;
 	        this.password = password;
-	        this.role = UserRole.valueOf(role.toUpperCase());;
+	        this.role = role
 	        this.email = email;
 	}
 
