@@ -1,6 +1,6 @@
 package Mysweetsystem2024;
-
-import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,8 +9,7 @@ public class productmgt {
 
    
     private Map<String, Product> products = new HashMap<>();
-
-    // Add a new product
+private static final Logger logger = Logger.getLogger(productmgt.class.getName());
     public boolean addProduct(String name, String description, double price) {
         if (products.containsKey(name)) {
             return false; 
@@ -35,20 +34,15 @@ public class productmgt {
 
     // Remove a product
     public boolean removeProduct(String productName) {
-       // if (products.remove(name) == null) {
-     //       return false; // Product does not exist
-        //}
-    //    return true;
-    	
-    	
-    	 System.out.println("Attempting to remove product: " + productName);
+ 
+    	 logger.log(Level.INFO, "Attempting to remove product: {0}", productName);
 
     	    if (products.containsKey(productName)) {
     	        products.remove(productName);
-    	        System.out.println("Product removed successfully: " + productName);
+    	         logger.log(Level.INFO, "Product removed successfully: {0}", productName);
     	        return true;
     	    } else {
-    	        System.out.println("Product not found, removal failed: " + productName);
+    	        logger.log(Level.WARNING, "Product not found, removal failed: {0}", productName);
     	        return false;
     	    }
     	
@@ -91,20 +85,7 @@ public class productmgt {
         report.append("chocklate: $250\n");
         return report.toString();
     }
-    
-    
-  /*  public boolean applyDiscount(String name, double discount) {
-        Product product = products.get(name);
-        if (product == null) {
-            return false; // Product does not exist
-        }
-        double originalPrice = product.getPrice();
-        double newPrice = originalPrice - (originalPrice * (discount / 100));
-        product.setPrice(newPrice);
-        return true;
-    }
 
-    */
     public Product findProductByName(String productName) {
         return products.get(productName);
     }
@@ -116,7 +97,6 @@ public class productmgt {
             return false;
         }
 
-        // Apply discount
         double originalPrice = product.getPrice();
         double discountedPrice = originalPrice - (originalPrice * (discountValue / 100));
 
@@ -128,63 +108,6 @@ public class productmgt {
         product.setPrice(discountedPrice);
         return true;
     }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    // Get best-selling products report
-  /*  public String getBestSellingProductsReport() {
-        // Example: Return a simple report. In a real application, you would calculate actual sales and identify best-sellers.
-        List<Product> bestSellingProducts = new ArrayList<>(products.values());
-
-        // Example content
-        StringBuilder report = new StringBuilder("Best Selling Products:\n");
-        for (Product product : bestSellingProducts) {
-            report.append(product.getName()).append(" - $").append(product.getPrice()).append("\n");
-        }
-        return report.toString();
-    }*/
-
-    // Apply discount to a product
-   /* public boolean applyDiscount(String name, String discountString) {
-        Product product = products.get(name);
-        if (product == null) {
-            return false; // Product does not exist
-        }
-
-        double discount;
-        try {
-            discount = Double.parseDouble(discountString);
-        } catch (NumberFormatException e) {
-            return false; // Invalid discount format
-        }
-
-        if (discount <= 0 || discount >= 100) {
-            return false; // Invalid discount value (should be between 0 and 100)
-        }
-
-        // Convert discount percentage to a decimal and apply it
-        double discountDecimal = discount / 100.0;
-        double newPrice = product.getPrice() * (1 - discountDecimal);
-        product.setPrice(newPrice);
-
-        return true;
-    }*/
-
-    
-
 
     // Get the price of a product
     public double getProductPrice(String name) {
