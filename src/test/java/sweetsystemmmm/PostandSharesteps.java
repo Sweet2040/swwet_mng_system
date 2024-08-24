@@ -6,8 +6,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import Mysweetsystem2024.MyApplication;
-import Mysweetsystem2024.Post;  // Import the Post class
+import mysweetsystem.MyApplication;
+import mysweetsystem.Post;  // Import the Post class
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
