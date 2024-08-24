@@ -19,6 +19,8 @@ public class contentsteps {
 
  
     public contentsteps () {
+        // This method is currently empty because it is not yet implemented.
+    // Future implementation will handle content steps logic.
     	}
 
     @When("I navigate to the {string} section")
