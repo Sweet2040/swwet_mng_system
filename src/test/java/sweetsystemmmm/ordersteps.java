@@ -107,7 +107,7 @@ public class ordersteps {
 
     @Then("the string representation of the order should be {string}")
     public void theStringRepresentationOfTheOrderShouldBe(String expectedString) {
-   //     assertEquals("The string representation of the order does not match", expectedString, orderStringRepresentation);
+   
     }
     @Given("I have an empty order")
     public void iHaveAnEmptyOrder() {
