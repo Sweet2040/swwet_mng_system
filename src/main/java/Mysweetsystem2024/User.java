@@ -77,17 +77,7 @@ public boolean submitProductFeedback(String rating, String comment) {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public UserRole getRole() {
-        return role;
-    }
-
-    public void setRole(UserRole role) {
-        this.role = role;
-    }
+   
 
     public String getEmail() {
         return email;
@@ -99,17 +89,7 @@ public boolean submitProductFeedback(String rating, String comment) {
 
    
 
-	public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-    public String toFileString() {
-        return username + "," + password + "," + country + "," + email + "," + role;
-    }
-
+	
    
     
     
