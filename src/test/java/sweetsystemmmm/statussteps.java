@@ -50,7 +50,8 @@ public class statussteps {
 
 	    @Then("the order should not be considered new")
 	    public void theOrderShouldNotBeConsideredNew() {
-	     
+	     // This method is currently empty because it has not been implemented yet.
+            // Future implementation will include logic to verify that the order status is not "new".
 	    }
 	    
 	    @Given("I have an order with status {string} and created within the last {int} minutes")
