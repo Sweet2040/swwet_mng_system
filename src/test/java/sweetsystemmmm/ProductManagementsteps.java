@@ -8,14 +8,14 @@ import static org.junit.Assert.assertTrue;
 
 
 import Mysweetsystem2024.MyApplication;
-import Mysweetsystem2024.productmgt;
+import Mysweetsystem2024.ProductMgt;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class ProductManagementsteps {
-    private productmgt productManagement;
+    private ProductMgt productManagement;
     private String productName;
     private String productDescription;
     private double productPrice;
@@ -25,7 +25,7 @@ public class ProductManagementsteps {
   private  MyApplication app;
 
     public ProductManagementsteps(MyApplication app ) {
-        productManagement = new productmgt();
+        productManagement = new ProductMgt();
         this.app=app;
     }
     
