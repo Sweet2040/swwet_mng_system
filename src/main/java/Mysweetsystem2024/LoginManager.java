@@ -7,7 +7,6 @@ import java.util.HashSet;
 public class LoginManager {
     private final Map<String, User> users;
     private final Set<String> loggedInUsers; // To track logged-in users
-    private MyApplication app;
     
     private String currentUser;
 
