@@ -14,8 +14,8 @@ public class User {
     public User(String username) {
         this.username = username;
     }
-    public String sendMessageToStoreOwner(String subject) {
-        // Simulate sending a message (In reality, this would interact with a messaging system)
+    public String sendMessageToStoreOwner(String subject,String message) {
+      
         return   "Message sent to store owner with subject: " + subject;
     }
     public User(String username, String password, String email, String country, UserRole role) {
@@ -28,16 +28,16 @@ public class User {
     }
   
     public boolean submitProductFeedback(String rating, String comment) {
-        // Simulate feedback submission (In reality, this would involve saving feedback in a database)
-        feedbackRecorded = true; // Assuming feedback submission is successful
+        
+        feedbackRecorded = true; 
         return feedbackRecorded;
     }
     public String notifyStoreOwner() {
-        // Simulate notifying the store owner (In reality, this would send a notification)
+       
         return "Store owner notified of feedback";
     }
     public String notifyRecipeOwner() {
-        // Simulate notifying the recipe owner (In reality, this would send a notification)
+       
         return "Recipe owner notified of feedback";
     }
 
@@ -97,11 +97,7 @@ public class User {
         this.email = email;
     }
 
-    //@Override 
-	//public String toString() {
-		//return "User [username=" + username + ", password=" + password + ", role=" + role + ", email=" + email
-			//	+ ", country=" + country + "]";
-//	}
+   
 
 	public String getCountry() {
         return country;
