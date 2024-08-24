@@ -13,9 +13,9 @@ public class Accountownersteps {
     private String businessInformation;
     private boolean detailsUpdatedSuccessfully = false;
     private boolean businessInfoUpdatedSuccessfully = false;
- private  MyApplication app;
-    public Accountownersteps (MyApplication app) {
-    	this.app=app;}
+
+    public Accountownersteps () {
+    	}
   
 
     @Given("I am on the account management page")
