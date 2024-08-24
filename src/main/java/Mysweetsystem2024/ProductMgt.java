@@ -127,13 +127,6 @@ public class ProductMgt {
             this.price = price;
         }
 
-        public String toFileString() {
-            return name + "," + description + "," + price;
-        }
-
-        public Product fromFileString(String fileString) {
-            String[] parts = fileString.split(",");
-            return new Product(parts[0], parts[1], Double.parseDouble(parts[2]));
-        }
+     
     }
 }
