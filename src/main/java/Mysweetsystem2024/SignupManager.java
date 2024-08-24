@@ -2,9 +2,9 @@ package Mysweetsystem2024;
 
 
 
-public class signupmanager {
+public class SignupManager {
     private MyApplication app;
-    public signupmanager(MyApplication app) {
+    public SignupManager(MyApplication app) {
         this.app = app;
     }
     public boolean signUp(String username, String password, String email, String country, UserRole role) {
