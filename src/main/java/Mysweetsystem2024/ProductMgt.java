@@ -1,15 +1,16 @@
-package Mysweetsystem2024;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.HashMap;
 
+package Mysweetsystem2024;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ProductMgt {
 
    
     private Map<String, Product> products = new HashMap<>();
-private static final Logger logger = Logger.getLogger(ProductMgt.class.getName());
+
+    // Add a new product
     public boolean addProduct(String name, String description, double price) {
         if (products.containsKey(name)) {
             return false; 
@@ -32,34 +33,27 @@ private static final Logger logger = Logger.getLogger(ProductMgt.class.getName()
     
     
 
-    // Remove a product
+  
     public boolean removeProduct(String productName) {
- 
-    	 logger.log(Level.INFO, "Attempting to remove product: {0}", productName);
+  
+    	
+    	
+    	 System.out.println("Attempting to remove product: " + productName);
 
     	    if (products.containsKey(productName)) {
     	        products.remove(productName);
-    	         logger.log(Level.INFO, "Product removed successfully: {0}", productName);
+    	        System.out.println("Product removed successfully: " + productName);
     	        return true;
     	    } else {
-    	        logger.log(Level.WARNING, "Product not found, removal failed: {0}", productName);
+    	        System.out.println("Product not found, removal failed: " + productName);
     	        return false;
     	    }
-    	
     	
     	
     }
     public boolean productExists(String name) {
         return products.containsKey(name);
     }
-    
-    
-    
-    
-    
-    
-    
-
     
     public String getSalesAndProfitsReport() {
        
@@ -85,34 +79,44 @@ private static final Logger logger = Logger.getLogger(ProductMgt.class.getName()
         report.append("chocklate: $250\n");
         return report.toString();
     }
-
+    
+    
+  
     public Product findProductByName(String productName) {
         return products.get(productName);
     }
-   public boolean applyDiscount(String productName, double discountValue) {
-    // Find product by name
-    Product product = findProductByName(productName);
-    if (product == null) {
-        logger.log(Level.WARNING, "Product not found: {0}", productName);
-        return false;
-    }
-    double originalPrice = product.getPrice();
-    double discountedPrice = originalPrice - (originalPrice * (discountValue / 100));
-    if (discountedPrice < 0) {
-        logger.log(Level.WARNING, "Discounted price is negative. Discount Value: {0}", discountValue);
-        return false;
-    }
-    product.setPrice(discountedPrice);
-    return true;
-}
+    public boolean applyDiscount(String productName, double discountValue) {
+        // Find product by name
+        Product product = findProductByName(productName);
+        if (product == null) {
+            System.out.println("Product not found: " + productName);
+            return false;
+        }
 
-    // Get the price of a product
+    
+        double originalPrice = product.getPrice();
+        double discountedPrice = originalPrice - (originalPrice * (discountValue / 100));
+
+        if (discountedPrice < 0) {
+            System.out.println("Discounted price is negative. Discount Value: " + discountValue);
+            return false;
+        }
+
+        product.setPrice(discountedPrice);
+        return true;
+    }
+
+  
+    
+
+
+    
     public double getProductPrice(String name) {
         Product product = products.get(name);
         return (product != null) ? product.getPrice() : 0.0;
     }
 
-    // Inner class for Product
+   
     private class Product {
         private String name;
         private String description;
