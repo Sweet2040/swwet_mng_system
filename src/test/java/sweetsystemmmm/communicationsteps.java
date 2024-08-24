@@ -14,7 +14,8 @@ public class communicationsteps {
     private String emailContent;
 	
   public communicationsteps () {
-    	//hi }
+    	//hi
+  }
     @Given("I am logged in as a Store Owner")
     public void iAmLoggedInAsAStoreOwner() {
         // Simulate logging in as a Store Owner
