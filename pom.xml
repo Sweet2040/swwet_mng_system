@@ -10,13 +10,13 @@
     <properties>
         <sonar.organization>sweet2040</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-            
+
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-           
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        
     </properties>
-   
+
     <build>
         <plugins>
             <plugin>
@@ -28,10 +28,11 @@
                     <target>17</target>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.10</version>
+                <version>0.8.12</version>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -41,97 +42,46 @@
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>verify</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
-       <plugin>
-    <groupId>io.cucumber</groupId>
-    <artifactId>cucumber-maven-plugin</artifactId>
-    <version>7.18.0</version> <!-- تحديث الإصدار هنا -->
-    <executions>
-        <execution>
-            <id>execute-cucumber-tests</id>
-            <goals>
-                <goal>test</goal>
-            </goals>
-            <configuration>
-                <glue>classpath:sweetsystemmmm</glue>
-                <features>file:///C:/Users/acer/eclipse-workspace/sweetsystem/Myfeatures</features>
-            </configuration>
-        </execution>
-    </executions>
-</plugin>
+
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>4.0.0.4121</version>
+            </plugin>
         </plugins>
     </build>
-
-    <repositories>
-    <repository>
-        <id>central</id>
-        <url>https://repo.maven.apache.org/maven2</url>
-    </repository>
-    <repository>
-        <id>cucumber-repo</id>
-        <url>https://repo.cucumber.io/repository/maven-public/</url>
-    </repository>
-</repositories>
-
 
     <dependencies>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>7.18.1</version>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-core</artifactId>
-            <version>7.18.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>5.12.0</version>
-            <scope>test</scope>
+            <version>7.18.0</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
-            <version>7.18.1</version>
+            <version>7.18.0</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>2.19.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>2.19.0</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.activation</groupId>
-            <artifactId>activation</artifactId>
-            <version>1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.mail</groupId>
-            <artifactId>javax.mail</artifactId>
-            <version>1.6.2</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-picocontainer</artifactId>
-            <version>7.18.1</version>
+            <version>7.18.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.surefire</groupId>
+            <artifactId>surefire-api</artifactId>
+            <version>3.3.1</version>
         </dependency>
     </dependencies>
 </project>
-
-       
 
 
 
