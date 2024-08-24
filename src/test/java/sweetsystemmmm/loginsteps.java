@@ -94,7 +94,7 @@ public class loginsteps {
     @Then("supplier login succeeds")
     public void supplierLoginSucceeds() {
        
-        //assertTrue("Login should be successful", loginSuccess);
+        //not implemented yet
     }
 
     @Then("supplier login fails")
