@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 
 
-import Mysweetsystem2024.MyApplication;
+
 import Mysweetsystem2024.ProductMgt;
 
 import io.cucumber.java.en.Given;
@@ -22,11 +22,10 @@ public class ProductManagementsteps {
     private double updatedPrice;
     private double discountValue;
     private String message;
-  private  MyApplication app;
-
-    public ProductManagementsteps(MyApplication app ) {
+  
+    public ProductManagementsteps( ) {
         productManagement = new ProductMgt();
-        this.app=app;
+       
     }
     
     
