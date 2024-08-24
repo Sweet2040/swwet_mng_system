@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import Mysweetsystem2024.MyApplication;
+
 public class Explorationsteps {
 
     private String searchQuery;
@@ -17,9 +17,11 @@ public class Explorationsteps {
     private String errorMessage;
     private String currentPage;
     private String selectedDessert;
- private  MyApplication app;
-    public Explorationsteps (MyApplication app) {
-    	this.app=app;}
+ 
+    public Explorationsteps () {
+        // This method is currently empty because it is not yet implemented.
+    // Future implementation will handle content steps logic.
+    	}
     @Given("the user is on the dessert recipes page")
     public void theUserIsOnTheDessertRecipesPage() {
         // Set the current page to dessert recipes page
