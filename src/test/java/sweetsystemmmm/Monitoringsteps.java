@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static org.junit.Assert.*;
 
-import Mysweetsystem2024.Test;
+import mysweetsystem.Test;
 
 public class Monitoringsteps {
 
