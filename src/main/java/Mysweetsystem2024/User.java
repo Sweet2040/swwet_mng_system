@@ -16,8 +16,7 @@ public class User {
     }
     public String sendMessageToStoreOwner(String subject, String message) {
         // Simulate sending a message (In reality, this would interact with a messaging system)
-         String confirmationMessage = "Message sent to store owner with subject: " + subject;
-        return confirmationMessage;
+        return   "Message sent to store owner with subject: " + subject;
     }
     public User(String username, String password, String email, String country, UserRole role) {
         this.username = username;
