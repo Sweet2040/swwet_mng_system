@@ -93,7 +93,7 @@ private static final Logger logger = Logger.getLogger(productmgt.class.getName()
         // Find product by name
         Product product = findProductByName(productName);
         if (product == null) {
-            logger.warning("Product not found: " + productName);
+            System.out.println("Product not found: " + productName);
             return false;
         }
 
@@ -101,7 +101,7 @@ private static final Logger logger = Logger.getLogger(productmgt.class.getName()
         double discountedPrice = originalPrice - (originalPrice * (discountValue / 100));
 
         if (discountedPrice < 0) {
-             logger.warning("Discounted price is negative. Discount Value: " + discountValue);
+            System.out.println("Discounted price is negative. Discount Value: " + discountValue);
             return false;
         }
 
