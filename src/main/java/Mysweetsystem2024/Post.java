@@ -1,5 +1,5 @@
 
-package mysweetsystem;
+package Mysweetsystem2024;
 
 public class Post {
     private String description;
