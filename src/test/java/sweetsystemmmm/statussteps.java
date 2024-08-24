@@ -50,7 +50,7 @@ public class statussteps {
 
 	    @Then("the order should not be considered new")
 	    public void theOrderShouldNotBeConsideredNew() {
-	      //  assertFalse("Order should not be considered new", order.isNew());
+	     
 	    }
 	    
 	    @Given("I have an order with status {string} and created within the last {int} minutes")
