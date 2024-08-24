@@ -8,7 +8,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Explorationsteps {
-
     private String searchQuery;
     private String filter;
     private boolean isSearchSuccessful;
