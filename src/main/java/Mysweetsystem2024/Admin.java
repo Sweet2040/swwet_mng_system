@@ -1,5 +1,4 @@
-package Mysweetsystem2024;
-
+package com.mysweetsystem;
 public class Admin {
 	private UserRepositry userRepository;
 
