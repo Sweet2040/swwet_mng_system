@@ -1,10 +1,12 @@
 package Mysweetsystem2024;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.Map;
 import java.util.Set;
 import java.util.HashSet;
 
 public class LoginManager {
+     private static final Logger logger = Logger.getLogger(LoginManager.class.getName());
     private final Map<String, User> users;
     private final Set<String> loggedInUsers;
     private String currentUser;
@@ -14,16 +16,17 @@ public class LoginManager {
         this.loggedInUsers = new HashSet<>();
     }
 
-   public boolean login(String username, String password) {
+  public boolean login(String username, String password) {
         if (validateLogin(username, password)) {
-            this.currentUser = username; 
-            System.out.println("Login successful. Welcome, " + currentUser + "!");
+            this.currentUser = username;
+            logger.log(Level.INFO, "Login successful. Welcome, {0}!", currentUser);
             return true;
         } else {
-            System.out.println("Login failed. Invalid username or password.");
+            logger.log(Level.WARNING, "Login failed. Invalid username or password.");
             return false;
         }
     }
+    
     private boolean validateLogin(String username, String password) {
         User user = users.get(username);
         return user != null && user.getPassword().equals(password);
@@ -34,14 +37,14 @@ public class LoginManager {
     }
 
 
-    public boolean logout(String username) {
+     public boolean logout(String username) {
         if (username == null) {
             return false;
         }
         if (loggedInUsers.remove(username)) {
             return true;
         } else {
-            System.out.println("User is not logged in.");
+            logger.log(Level.WARNING, "User {0} is not logged in.", username);
             return false;
         }
     }
