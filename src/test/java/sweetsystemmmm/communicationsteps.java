@@ -9,13 +9,9 @@ import io.cucumber.java.en.When;
 public class communicationsteps {
 
 
-    private String messageSubject;
-    private String messageBody;
+  
     private String emailContent;
-	
-  public communicationsteps () {
-    	//hi
-  }
+
     @Given("I am logged in as a Store Owner")
     public void iAmLoggedInAsAStoreOwner() {
         // Simulate logging in as a Store Owner
@@ -47,8 +43,7 @@ public class communicationsteps {
     @When("I enter the message subject and body")
     public void iEnterTheMessageSubjectAndBody() {
         // Simulate entering message details
-        messageSubject = "Subject"; // Example subject
-        messageBody = "Message body"; // Example body
+      
         System.out.println("Entered message subject and body");
     }
 
