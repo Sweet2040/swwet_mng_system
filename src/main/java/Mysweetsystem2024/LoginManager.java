@@ -3,8 +3,6 @@ package Mysweetsystem2024;
 
 
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.Map;
 import java.util.Set;
 import java.util.HashSet;
@@ -25,16 +23,16 @@ public class LoginManager {
         this.loggedInUsers = new HashSet<>();
     }
 
-    public boolean login(String username, String password) {
-    if (validateLogin(username, password)) {
-        this.currentUser = username; // Set the currentUser to the logged-in username
-        logger.log(Level.INFO, "Login successful. Welcome, {0}!", currentUser);
-        return true;
-    } else {
-        logger.log(Level.WARNING, "Login failed. Invalid username or password.");
-        return false;
+   public boolean login(String username, String password) {
+        if (validateLogin(username, password)) {
+            this.currentUser = username; // Set the currentUser to the logged-in username
+            System.out.println("Login successful. Welcome, " + currentUser + "!");
+            return true;
+        } else {
+            System.out.println("Login failed. Invalid username or password.");
+            return false;
+        }
     }
-}
 
 
     private boolean validateLogin(String username, String password) {
