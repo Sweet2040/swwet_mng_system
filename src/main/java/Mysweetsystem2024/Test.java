@@ -2,10 +2,12 @@ package Mysweetsystem2024;
 
 import java.util.HashMap;
 import java.util.Map;
-
+import java.util.logging.Logger;
 public class Test {
 
 
+
+	private static final Logger logger = Logger.getLogger(Test.class.getName());
 	private static final String USER_STATISTICS_SECTION = "User Statistics";
 	 private boolean adminLoggedIn = false;
 	    private String currentSection = "";
@@ -22,14 +24,14 @@ public class Test {
 	    public void loginAsAdmin() {
 	       
 	        adminLoggedIn = true;
-	        System.out.println("Admin logged in.");
+	       logger.info("Admin logged in.");
 	    }
 
 	    
 	    public void navigateToSection(String section) {
 	        if (adminLoggedIn) {
 	            currentSection = section;
-	            System.out.println("Navigated to: " + section);
+	           logger.info("Navigated to: " + section);
 	        } else {
 	            throw new IllegalStateException("Admin not logged in. Please log in first.");
 	        }
