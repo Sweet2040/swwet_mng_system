@@ -1,7 +1,7 @@
 package sweetsystemmmm;
 
 import static org.junit.Assert.*;
-import Mysweetsystem2024.MyApplication;
+
 
 import Mysweetsystem2024.Admin;
 import Mysweetsystem2024.StoreOwner;
@@ -17,13 +17,9 @@ public class Usermanagementsteps {
     private UserRepositry userRepository;
     private StoreOwner createdUser;
     private boolean isUserDeleted;
- private MyApplication app;
     
     
-    public Usermanagementsteps(MyApplication app) {
-    	this.app=app;
-    	
-    }
+   
     @Given("I am logged in as an admin")
     public void iAmLoggedInAsAnAdmin() {
         userRepository = new UserRepositry();
