@@ -1,7 +1,7 @@
 package sweetsystemmmm;
 
 import static org.junit.Assert.*;
-import Mysweetsystem2024.MyApplication;
+
 import Mysweetsystem2024.Order;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,9 +15,10 @@ public class ordersteps {
     private String currentOrderStatus;
     private boolean isOrderProcessed;
     private boolean isOrderCreated;
-     private  MyApplication app;
-    public ordersteps(MyApplication app) {
-    	this.app=app;
+  
+    public ordersteps() {
+    	// This method is currently empty because it is not yet implemented.
+    // Future implementation will handle content steps logic.
     }
     @Given("I am logged in as a Store Owner or Raw Material Supplier")
     public void iAmLoggedInAsAStoreOwnerOrRawMaterialSupplier() {
