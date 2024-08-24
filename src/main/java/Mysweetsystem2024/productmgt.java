@@ -89,25 +89,22 @@ private static final Logger logger = Logger.getLogger(productmgt.class.getName()
     public Product findProductByName(String productName) {
         return products.get(productName);
     }
-    public boolean applyDiscount(String productName, double discountValue) {
-        // Find product by name
-        Product product = findProductByName(productName);
-        if (product == null) {
-            System.out.println("Product not found: " + productName);
-            return false;
-        }
-
-        double originalPrice = product.getPrice();
-        double discountedPrice = originalPrice - (originalPrice * (discountValue / 100));
-
-        if (discountedPrice < 0) {
-            System.out.println("Discounted price is negative. Discount Value: " + discountValue);
-            return false;
-        }
-
-        product.setPrice(discountedPrice);
-        return true;
+   public boolean applyDiscount(String productName, double discountValue) {
+    // Find product by name
+    Product product = findProductByName(productName);
+    if (product == null) {
+        logger.log(Level.WARNING, "Product not found: {0}", productName);
+        return false;
     }
+    double originalPrice = product.getPrice();
+    double discountedPrice = originalPrice - (originalPrice * (discountValue / 100));
+    if (discountedPrice < 0) {
+        logger.log(Level.WARNING, "Discounted price is negative. Discount Value: {0}", discountValue);
+        return false;
+    }
+    product.setPrice(discountedPrice);
+    return true;
+}
 
     // Get the price of a product
     public double getProductPrice(String name) {
