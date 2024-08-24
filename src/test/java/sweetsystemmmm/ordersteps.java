@@ -105,18 +105,16 @@ public class ordersteps {
         orderStringRepresentation = order.toString();
     }
 
-    @Then("the string representation of the order should be {string}")
+  @Then("the string representation of the order should be {string}")
 public void theStringRepresentationOfTheOrderShouldBe(String expectedString) {
-    // Assuming there is a method getOrder() that returns the current Order instance.
-    Order order = getOrder(); // Replace this with the actual method to retrieve the order object.
+    // TODO: Implement this method to check the string representation of the order.
+    // Currently, this method is not implemented. The implementation needs to be
+    // provided to compare the expectedString with the actual string representation
+    // of the order object.
     
-    // Convert the order object to its string representation.
-    String actualString = order.toString(); // Assuming the Order class has a proper toString() implementation.
-    
-    // Assert that the actual string representation matches the expected string.
-    if (!expectedString.equals(actualString)) {
-        throw new AssertionError("Expected string: " + expectedString + " but got: " + actualString);
-    }
+    // For now, we throw an exception to indicate that the method is not yet
+    // implemented.
+    throw new UnsupportedOperationException("Method not yet implemented.");
 }
     @Given("I have an empty order")
     public void iHaveAnEmptyOrder() {
