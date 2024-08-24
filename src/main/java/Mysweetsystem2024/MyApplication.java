@@ -1,4 +1,4 @@
-package Mysweetsystem2024;
+package mysweetsystem;
 
 import java.util.HashMap;
 import java.util.Map;
