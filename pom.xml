@@ -48,36 +48,37 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>io.cucumber</groupId>
-                <artifactId>cucumber-maven-plugin</artifactId>
-                <version>7.2.3</version> <!-- استخدام إصدار مستقر من الـ plugin -->
-                <executions>
-                    <execution>
-                        <id>execute-cucumber-tests</id>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                        <configuration>
-                            <glue>classpath:sweetsystemmmm</glue>
-                            <features>file:///C:/Users/acer/eclipse-workspace/sweetsystem/Myfeatures</features>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+       <plugin>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-maven-plugin</artifactId>
+    <version>7.18.0</version> <!-- تحديث الإصدار هنا -->
+    <executions>
+        <execution>
+            <id>execute-cucumber-tests</id>
+            <goals>
+                <goal>test</goal>
+            </goals>
+            <configuration>
+                <glue>classpath:sweetsystemmmm</glue>
+                <features>file:///C:/Users/acer/eclipse-workspace/sweetsystem/Myfeatures</features>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
         </plugins>
     </build>
 
     <repositories>
-        <repository>
-            <id>central</id>
-            <url>https://repo.maven.apache.org/maven2</url>
-        </repository>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
+    <repository>
+        <id>central</id>
+        <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+    <repository>
+        <id>cucumber-repo</id>
+        <url>https://repo.cucumber.io/repository/maven-public/</url>
+    </repository>
+</repositories>
+
 
     <dependencies>
         <dependency>
