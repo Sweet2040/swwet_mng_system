@@ -14,10 +14,7 @@ public class Accountownersteps {
     private boolean detailsUpdatedSuccessfully = false;
     private boolean businessInfoUpdatedSuccessfully = false;
 
-    public Accountownersteps () {
-         // This constructor is intentionally left empty because it is not needed for this step definition class.
-    	}
-  
+ 
 
     @Given("I am on the account management page")
     public void iAmOnTheAccountManagementPage() {
@@ -31,9 +28,7 @@ public class Accountownersteps {
     @When("I update my account details with new information")
     public void iUpdateMyAccountDetailsWithNewInformation() {
        
-        accountDetails = "Updated account details"; // Example of updated details
         System.out.println("Updated account details with new information");
-       
         detailsUpdatedSuccessfully = true; // Simulate successful update
     }
 
