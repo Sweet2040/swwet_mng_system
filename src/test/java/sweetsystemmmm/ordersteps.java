@@ -8,11 +8,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class ordersteps {
-	private String orderStringRepresentation;
-	private String orderStatus;
-	private String orderDetails;
+	
     private Order order;
-    private String currentOrderStatus;
+    
     private boolean isOrderProcessed;
     private boolean isOrderCreated;
   
