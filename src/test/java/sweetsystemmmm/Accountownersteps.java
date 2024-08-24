@@ -22,10 +22,10 @@ public class Accountownersteps {
     @Given("I am on the account management page")
     public void iAmOnTheAccountManagementPage() {
         // Simulate navigation to the account management page
-        // Example: click on "Account Management" link/button
+       
         System.out.println("Navigated to the account management page");
-        // Implement actual navigation logic
-        // e.g., homePage.navigateToAccountManagement();
+        
+       
     }
 
     @When("I update my account details with new information")
