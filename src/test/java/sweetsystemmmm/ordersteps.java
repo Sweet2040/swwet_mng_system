@@ -106,9 +106,18 @@ public class ordersteps {
     }
 
     @Then("the string representation of the order should be {string}")
-    public void theStringRepresentationOfTheOrderShouldBe(String expectedString) {
-   
+public void theStringRepresentationOfTheOrderShouldBe(String expectedString) {
+    // Assuming there is a method getOrder() that returns the current Order instance.
+    Order order = getOrder(); // Replace this with the actual method to retrieve the order object.
+    
+    // Convert the order object to its string representation.
+    String actualString = order.toString(); // Assuming the Order class has a proper toString() implementation.
+    
+    // Assert that the actual string representation matches the expected string.
+    if (!expectedString.equals(actualString)) {
+        throw new AssertionError("Expected string: " + expectedString + " but got: " + actualString);
     }
+}
     @Given("I have an empty order")
     public void iHaveAnEmptyOrder() {
         order = new Order(null, null, null, null, null, null); // Assuming a constructor that initializes an empty order
