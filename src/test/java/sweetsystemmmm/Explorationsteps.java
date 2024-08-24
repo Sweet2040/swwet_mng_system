@@ -14,7 +14,7 @@ public class Explorationsteps {
     private boolean isSearchSuccessful;
     private boolean isFilterSuccessful;
     private boolean isPurchaseSuccessful;
-    private String errorMessage;
+    private String errorMessage;// Reserved for future use to handle and display error messages
     private String currentPage;
     private String selectedDessert;
  
