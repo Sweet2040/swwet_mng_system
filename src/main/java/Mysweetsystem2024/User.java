@@ -42,9 +42,11 @@ public class User {
         return "Recipe owner notified of feedback";
     }
 
-    public User(String username, String password, String role) {
-		// TODO Auto-generated constructor stub
-	}
+     public User(String username, String password,  String role) {
+        this.username = username;
+        this.password = password;
+        this.role = UserRole.valueOf(role.toUpperCase()); // Convert role string to UserRole enum
+    }
    
     
     
