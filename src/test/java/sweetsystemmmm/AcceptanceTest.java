@@ -11,7 +11,7 @@ import io.cucumber.junit.*;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-  features= "C:/Users/acer/eclipse-workspace/sweetsystem/MyFeatures" ,
+  features= "C:\Users\acer\git\swwet_mng_system11\Myfeatures" ,
 plugin= {"summary", "html:target/cucumber/report.html"},
 monochrome=true,
 snippets=SnippetType.CAMELCASE,
