@@ -115,7 +115,7 @@ public class Explorationsteps {
     }
 
     // Dummy methods to simulate actual functionality
-    private boolean performSearch(String query) {
+    private boolean performSearch() {
         // Simulate a search action
         return true; // Return true if search is successful
     }
