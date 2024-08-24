@@ -9,7 +9,7 @@ public class ProductMgt {
 
    
     private Map<String, Product> products = new HashMap<>();
-private static final Logger logger = Logger.getLogger(productmgt.class.getName());
+private static final Logger logger = Logger.getLogger(ProductMgt.class.getName());
     public boolean addProduct(String name, String description, double price) {
         if (products.containsKey(name)) {
             return false; 
