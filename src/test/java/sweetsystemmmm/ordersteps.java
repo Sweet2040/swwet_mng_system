@@ -33,13 +33,7 @@ public class ordersteps {
         assertTrue("Not on the order management page", isOnOrderManagementPage);
     }
 
-    //@When("I create a new order with details {string}")
-    //public void iCreateANewOrderWithDetails(String details) {
-        // Create a new order with provided details
-        //order = new Order(details);
-      //  isOrderCreated = (order != null);
-        //isOrderProcessed = true; // Assume order processing is successful
-    //}
+
     @When("I create a new order with details {string}")
     public void iCreateANewOrderWithDetails(String details) {
         order = new Order(details);
@@ -47,24 +41,13 @@ public class ordersteps {
         order.setStatus("Created");
     }
 
-   // @Then("the order should be processed successfully")
-   // public void theOrderShouldBeProcessedSuccessfully() {
-    //    assertTrue("Order was not processed successfully", isOrderProcessed);
-     //   assertNotNull("Order was not created", order);
-    //}
     @Then("the order should be processed successfully")
     public void theOrderShouldBeProcessedSuccessfully() {
         assertNotNull("Order should be created", order);
         assertEquals("Order status should be 'Created'", "Created", order.getStatus());
     }
 
-    //@Given("I have created an order with details {string}")
-    //public void iHaveCreatedAnOrderWithDetails(String details) {
-        // Create an order with the given details
-      //  currentOrder = new Order(details);
-        //isOrderCreated = (currentOrder != null);
-        //assertNotNull("Order was not created", currentOrder);
-    //}
+
     @Given("I have created an order with details {string}")
     public void iHaveCreatedAnOrderWithDetails(String details) {
         this.orderDetails = details;
@@ -79,23 +62,14 @@ public class ordersteps {
         
     }
 
-   // @When("I update the status of the order to {string}")
-    //public void iUpdateTheStatusOfTheOrderTo(String status) {
-      //  if (order != null) {
-        //    order.setStatus(status);
-          //  currentOrderStatus = order.getStatus();
-        //}
-    //}
+  
     @When("I update the status of the order to {string}")
     public void iUpdateTheStatusOfTheOrderTo(String status) {
         order.setStatus(status);
         this.orderStatus = status;
     }
 
-   // @Then("the order status should be {string}")
-   // public void theOrderStatusShouldBe(String expectedStatus) {
-     //   assertEquals("Order status did not match the expected status", expectedStatus, currentOrderStatus);
-    //}
+ 
     @Then("the order status should be {string}")
     public void theOrderStatusShouldBe(String expectedStatus) {
         assertEquals("Order status should match", expectedStatus, order.getStatus());
