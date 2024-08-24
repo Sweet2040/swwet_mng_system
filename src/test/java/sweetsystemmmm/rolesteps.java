@@ -15,11 +15,11 @@ public class rolesteps {
 	    private String roleString;
 	    private UserRole role;
 	    private Exception exception;
-  private MyApplication app;
+ 
 	    
 	    
-	    public rolesteps(MyApplication app) {
-	    	this.app=app;
+	    public rolesteps() {
+	    	// hi hi
 	    }
 	    @Given("a user role string {string}")
 	    public void aUserRoleString(String roleString) {
