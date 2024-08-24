@@ -29,13 +29,14 @@ public class Test {
 
 	    
 	    public void navigateToSection(String section) {
-	        if (adminLoggedIn) {
-	            currentSection = section;
-	           logger.info("Navigated to: " + section);
-	        } else {
-	            throw new IllegalStateException("Admin not logged in. Please log in first.");
-	        }
-	    }
+    if (adminLoggedIn) {
+        currentSection = section;
+        logger.info(String.format("Navigated to: %s", section));
+    } else {
+        throw new IllegalStateException("Admin not logged in. Please log in first.");
+    }
+}
+
 
 	   
 	    public String requestFinancialReport() {
