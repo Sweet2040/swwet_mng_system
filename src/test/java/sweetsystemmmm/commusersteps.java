@@ -1,8 +1,8 @@
 package sweetsystemmmm;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import Mysweetsystem2024.MyApplication;
-import Mysweetsystem2024.User;
+import mysweetsystem.MyApplication;
+import mysweetsystem.User;
 import io.cucumber.java.en.*;
 public class commusersteps {
 	
