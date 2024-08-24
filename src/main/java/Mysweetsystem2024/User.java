@@ -10,7 +10,6 @@ public class User {
     
     
    
-    private boolean feedbackRecorded;
     public User(String username) {
         this.username = username;
     }
@@ -27,11 +26,13 @@ public class User {
         
     }
   
-    public boolean submitProductFeedback(String rating, String comment) {
-        
-        feedbackRecorded = true; 
+   
+public boolean submitProductFeedback(String rating, String comment) {
+        boolean feedbackRecorded = true;  // Declared as a local variable
         return feedbackRecorded;
     }
+
+	
     public String notifyStoreOwner() {
        
         return "Store owner notified of feedback";
