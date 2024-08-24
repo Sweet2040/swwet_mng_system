@@ -1,4 +1,4 @@
-package Mysweetsystem2024;
+package mysweetsystem;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.Map;
