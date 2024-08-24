@@ -1,7 +1,7 @@
 package sweetsystemmmm;
 
 import static org.junit.Assert.*;
-import Mysweetsystem2024.MyApplication;
+import mysweetsystem.MyApplication;
 
 import mysweetsystem.Admin;
 import mysweetsystem.StoreOwner;
