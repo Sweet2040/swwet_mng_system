@@ -14,7 +14,7 @@ public class User {
     public User(String username) {
         this.username = username;
     }
-    public String sendMessageToStoreOwner(String subject, String message) {
+    public String sendMessageToStoreOwner(String subject) {
         // Simulate sending a message (In reality, this would interact with a messaging system)
         return   "Message sent to store owner with subject: " + subject;
     }
