@@ -1,5 +1,5 @@
 
-package Mysweetsystem2024;
+package mysweetsystem;
 
 public class User {
     private String username;
