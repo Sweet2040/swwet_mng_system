@@ -61,7 +61,6 @@ public boolean submitProductFeedback(String rating, String comment) {
 		public User(String username, String email, String password, String role1) {
 		 this.username = username;
 	        this.password = password;
-	        this.role = role;
 	        this.email = email;
 	}
 
