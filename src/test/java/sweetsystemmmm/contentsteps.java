@@ -17,9 +17,9 @@ public class contentsteps {
     private String confirmationMessage;
     private String responseMessage;
 
- private  MyApplication app;
-    public contentsteps (MyApplication app) {
-    	this.app=app;}
+ 
+    public contentsteps () {
+    	}
 
     @When("I navigate to the {string} section")
     public void iNavigateToTheSection(String section) {
@@ -36,7 +36,7 @@ public class contentsteps {
         Map<String, String> details = dataTable.asMap(String.class, String.class);
         String title = details.get("Title");
         String description = details.get("Description");
-        recipes.put(title, description); // Add recipe to the collection
+        recipes.put(title, description);
     }
 
     @When("I submit the new recipe")
@@ -60,7 +60,7 @@ public class contentsteps {
 
     @Given("a recipe titled {string} exists")
     public void aRecipeTitledExists(String title) {
-        recipes.put(title, "Default Description"); // Ensure the recipe exists
+        recipes.put(title, "Default Description"); 
     }
 
     @When("I choose to edit the recipe {string}")
@@ -70,7 +70,7 @@ public class contentsteps {
 
     @When("I update the description to {string}")
     public void iUpdateTheDescriptionTo(String newDescription) {
-        // Update the description of the selected recipe
+        
         recipes.replace("Chocolate Cake", newDescription);
     }
 
