@@ -28,14 +28,23 @@ public class Test {
 	    }
 
 	    
-	    public void navigateToSection(String section) {
+	public void navigateToSection(String section) {
     if (adminLoggedIn) {
+        // Update the current section
         currentSection = section;
-        logger.info(String.format("Navigated to: %s", section));
+        
+        // Log the navigation event conditionally
+        logNavigation(section);
     } else {
         throw new IllegalStateException("Admin not logged in. Please log in first.");
     }
 }
+
+// Separate method for logging
+private void logNavigation(String section) {
+    logger.info(String.format("Navigated to: %s", section));
+}
+
 
 
 	   
