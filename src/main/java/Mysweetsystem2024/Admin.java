@@ -12,10 +12,6 @@ public class Admin {
         return userRepository.addUser(user);
     }
 
-    //public User viewUser(String username) {
-      //  return userRepository.getUser(username);
-   // }
-
     public boolean updateUser(User user) {
         return userRepository.updateUser(user);
     }
