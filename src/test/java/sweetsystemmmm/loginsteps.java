@@ -11,8 +11,8 @@ import static org.junit.Assert.*;
 import java.util.HashMap;
 import java.util.Map;
 
-import Mysweetsystem2024.LoginManager;
-import Mysweetsystem2024.User;
+import mysweetsystem.LoginManager;
+import mysweetsystem.User;
 
 
 public class loginsteps {
