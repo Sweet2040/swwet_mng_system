@@ -66,29 +66,24 @@ public class ProductManagementsteps {
 
     @Given("the store owner or supplier is signed in and has an existing product")
     public void theStoreOwnerOrSupplierIsSignedInAndHasAnExistingProduct() {
-        // Simulate an existing product setup
-    	// Ensure that the product exists
+      
         boolean added = productManagement.addProduct("cake cake", " delicious", 100.0);
         if (!added) {
-            // Handle the case where the product already exists or fail the test setup
+            
             System.out.println("Product already exists or failed to add.");
         }
     }
 
     @When("they update the product with name {string} to {string} and change the price to {string}")
     public void theyUpdateTheProductWithNameToAndChangeThePriceTo(String name, String newDescription, String newPrice) {
-    	// productName = name;
-    	//    productDescription = newDescription;
-    	 //   updatedPrice = Double.parseDouble(newPrice);
-    	   // boolean success = productManagement.updateProduct(productName, productDescription, updatedPrice);
-    	   // message = success ? "Product updated successfully." : "Failed to update product.";
+    	
     	 productName = name;
     	    productDescription = newDescription;
     	    updatedPrice = Double.parseDouble(newPrice);
 
-    	    // Ensure the product exists before trying to update
+    	    
     	    if (!productManagement.productExists(productName)) {
-    	        // Add the product if it doesn't exist
+    	        
     	        productManagement.addProduct(productName, "Initial Description", 100.0);
     	    }
 
@@ -114,34 +109,34 @@ public class ProductManagementsteps {
     public void theyRemoveTheProductWithName(String name) {
         productName = name;
 
-        // Ensure the product exists before attempting to remove it
+       
         boolean productExistsBefore = productManagement.productExists(productName);
         if (!productExistsBefore) {
-            // Add the product if it doesn't exist
+           
             boolean added = productManagement.addProduct(productName, "Initial Description", 100.0);
             if (!added) {
                 throw new RuntimeException("Failed to add product before removal attempt.");
             }
         }
 
-        // Log the current state of the product
+        
         System.out.println("Product exists before removal: " + productManagement.productExists(productName));
 
-        // Attempt to remove the product
+       
         boolean success = productManagement.removeProduct(productName);
         message = success ? "Product removed successfully." : "Failed to remove product.";
 
-        // Log the result of the removal attempt
+      
         System.out.println(message);
     }
 
 
     @Then("the product should be removed successfully")
     public void theProductShouldBeRemovedSuccessfully() {
-        // Assert that the success message is as expected
+      
         assert "Product removed successfully.".equals(message) : "Expected success message for product removal but got: " + message;
 
-        // Verify the product is no longer present
+        
         boolean productExistsAfter = productManagement.productExists(productName);
         System.out.println("Product exists after removal attempt: " + productExistsAfter);
         assert !productExistsAfter : "Expected product to be removed but it still exists.";
@@ -156,8 +151,7 @@ public class ProductManagementsteps {
 
     @When("they view the sales and profits report")
     public void theyViewTheSalesAndProfitsReport() {
-        //String report = productManagement.getSalesAndProfitsReport();
-       // message = report.contains("Total Sales") && report.contains("Total Profits") ? "Report displayed successfully." : "Failed to display report.";
+      
     	String report = productManagement.getBestSellingProductsReport();
         message = report.contains("Best Selling Products") ? "Report displayed successfully." : "Failed to display report.";
         System.out.println("Report Content:\n" + report); // Debug output
@@ -170,18 +164,13 @@ public class ProductManagementsteps {
 
     @Then("a breakdown of sales per product")
     public void aBreakdownOfSalesPerProduct() {
-        // Check if report includes breakdown of sales per product
-        //assert message.contains("Sales Breakdown");
-    	// Ensure the message indicates success
+       
         assert "Report displayed successfully.".equals(message) : "Expected success message but got: " + message;
         
-        // Retrieve the actual report content
+     
         String report = productManagement.getSalesAndProfitsReport();
-        
-        // Print the report for debugging
         System.out.println("Report Content:\n" + report);
-        
-        // Check if the report contains the breakdown of sales per product
+     
         assert report.contains("Sales Breakdown") : "Expected report to contain 'Sales Breakdown' but it does not.";
     }
 
