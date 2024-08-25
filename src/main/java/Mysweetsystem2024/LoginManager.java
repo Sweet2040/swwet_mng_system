@@ -29,24 +29,15 @@ public class LoginManager {
 
 
 
+public boolean logout(String username) {
+    return loggedInUsers.remove(username);
+}
 
 
    
 
 
-  public boolean logout(String username) {
-        if (username == null) {
-            logger.log(Level.WARNING, "Username cannot be null.");
-            return false;
-        }
-        if (loggedInUsers.remove(username)) {
-            logger.log(Level.INFO, "User {0} logged out successfully.", username);
-            return true;
-        } else {
-            logger.log(Level.WARNING, "User {0} is not logged in.", username);
-            return false;
-        }
-    }
+
     
 
     public boolean isUserLoggedIn(String username) {
