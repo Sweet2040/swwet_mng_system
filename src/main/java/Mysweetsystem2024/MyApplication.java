@@ -14,25 +14,7 @@ import javax.swing.*;
 
 
 public class MyApplication {
-    private Map<String, User> users;
-    private LoginManager loginManager;
-
-    
-    
-    
-    
-    /////may edit 
-    private static final String POSTS_FILE = "dessert_creations.txt";
-    
-    
-    ////
-    private static final String DESSERT_CREATIONS_FILE = "dessert_creations.txt";
-    private static final String IMAGES_DIR = "images/";
-    
-    private JTextArea descriptionTextArea;
-    private JButton uploadImageButton;
-    private File selectedImageFile;
-    
+    private Map<String, User> users;    
     private String currentUser; 
 
     
@@ -43,7 +25,7 @@ public class MyApplication {
 
     public MyApplication() {
         users = new HashMap<>();
-        loginManager = new LoginManager(users);
+        
        
     }
 
