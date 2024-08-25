@@ -2,12 +2,14 @@ package Mysweetsystem2024;
 import java.util.HashMap;
 import java.util.Map;
 
+import java.util.logging.Logger;
+import java.util.logging.Level;
 public class Test {
 
 
 	private static final String USER_STATISTICS_REPORT = "User Statistics";
 	
-
+         private static final Logger logger = Logger.getLogger(Test.class.getName()); 
 
 	
 	 private boolean adminLoggedIn = false;
@@ -20,13 +22,12 @@ public class Test {
 	        reports.put("Best-Selling Products", "Store A: Product X - 500 units\nStore B: Product Y - 300 units");
 	        reports.put(USER_STATISTICS_REPORT, "Nablus: 200 users\nJenin: 150 users");
 	    }
-
+            public void loginAsAdmin() {
+               adminLoggedIn = true;
+               logger.log(Level.INFO, "Admin logged in."); // Replace System.out.println with logger
+           }
 	    
-	    public void loginAsAdmin() {
-	       
-	        adminLoggedIn = true;
-	        System.out.println("Admin logged in.");
-	    }
+	
 
 	    
 	    public void navigateToSection(String section) {
