@@ -39,7 +39,7 @@ public class Test {
 	        if ("Financial Reports".equals(currentSection)) {
 	            return reports.get("Financial Report");
 	        } else {
-	            throw new IllegalStateException("Not in the Financial Reports section.");
+	              return "Error: Not in the Financial Reports section.";
 	        }
 	    }
 
@@ -48,7 +48,7 @@ public class Test {
 	        if ("Store Reports".equals(currentSection)) {
 	            return reports.get("Best-Selling Products");
 	        } else {
-	            throw new IllegalStateException("Not in the Store Reports section.");
+	             return "Error: Not in the Financial Reports section.";
 	        }
 	    }
 
@@ -57,7 +57,7 @@ public class Test {
 	        if (USER_STATISTICS_REPORT.equals(currentSection)) {
 	            return reports.get(USER_STATISTICS_REPORT);
 	        } else {
-	            throw new IllegalStateException("Not in the User Statistics section.");
+	             return "Error: Not in the Financial Reports section.";
 	        }
 	   }
 	}
