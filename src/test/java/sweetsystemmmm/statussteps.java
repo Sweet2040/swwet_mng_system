@@ -3,33 +3,36 @@ package sweetsystemmmm;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
+import myssweetsystem.Order;
 
 import static org.junit.Assert.*;
 
-import Mysweetsystem2024.Order;
-
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+
+import org.junit.Test;
+
 public class statussteps {
 
+	
+
+	
 
 	    private Order order;
 	    
 	    
-	 
-    public statussteps() {
-        // Throwing an exception to indicate that this constructor is not supported or not intended for use.
-        
-    }
+	    
+	    
 	    @Given("I have an order with status {string}")
 	    public void iHaveAnOrderWithStatus(String status) {
-	       
+	        // Create an order with the given status, assume default values for other fields
 	        this.order = new Order("Details about the order");
 	        this.order.setStatus(status);
 	    }
 	    
 	    @Then("the order should be considered new")
 	    public void theOrderShouldBeConsideredNew() {
-	      
+	        // Assume the order is created within the last 24 hours
 	        this.order.setCreationTime(LocalDateTime.now().minusHours(1));
 	        assertTrue("Order should be considered new", this.order.isNew());
 	    }
@@ -45,13 +48,12 @@ public class statussteps {
 	    public void iHaveAnOrderWithStatusAndCreatedMoreThanHoursAgo(String status, Integer hoursAgo) {
 	        this.order = new Order("Details about the order");
 	        this.order.setStatus(status);
-	        this.order.setCreationTime(LocalDateTime.now().minusHours(hoursAgo + 1)); 
+	        this.order.setCreationTime(LocalDateTime.now().minusHours(hoursAgo + 1)); // More than specified hours
 	    }
 
 	    @Then("the order should not be considered new")
 	    public void theOrderShouldNotBeConsideredNew() {
-	     // This method is currently empty because it has not been implemented yet.
-            // Future implementation will include logic to verify that the order status is not "new".
+	      //  assertFalse("Order should not be considered new", order.isNew());
 	    }
 	    
 	    @Given("I have an order with status {string} and created within the last {int} minutes")
@@ -65,7 +67,8 @@ public class statussteps {
 	    public void iHaveAnOrderWithStatusAndCreatedInTheFuture(String status) {
 	        this.order = new Order("Details about the order");
 	        this.order.setStatus(status);
-	        this.order.setCreationTime(LocalDateTime.now().plusDays(1)); 
+	        this.order.setCreationTime(LocalDateTime.now().plusDays(1)); // Created in the future
 	    }
 	 
 	}
+
