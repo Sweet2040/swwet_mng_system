@@ -2,6 +2,8 @@ package Mysweetsystem2024;
 
 
 
+import java.util.List;
+
 public class SignupManager {
     private MyApplication app;
     public SignupManager(MyApplication app) {
@@ -16,7 +18,12 @@ public class SignupManager {
         app.addUser(newUser);
         return true; 
     }
+    
+    
+
+       
+      
+    
 
     
 }
-
