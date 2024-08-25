@@ -26,12 +26,7 @@ public class MyApplication {
        
     }
 
-    public void signUpUser(String username, String password, String email, String country, UserRole role) {
-        if (!userExists(username)) {
-            users.put(username, new User(username, password, email, country, role));
-           
-        }
-    }
+   
 
     public boolean userExists(String username) {
         return users.containsKey(username);
