@@ -106,13 +106,9 @@ public class ProductMgt {
         double originalPrice = product.getPrice();
         double discountedPrice = originalPrice - (originalPrice * (discountValue / 100));
 
-        // Ensure discounted price is not negative before setting
-        if (discountedPrice < 0) {
-            logger.log(Level.WARNING, "Discounted price is negative for product {0}. Discount value: {1}", new Object[]{productName, discountValue});
-            return false;
-        }
+       return discountedPrice >= 0 && setProductPrice(product, discountedPrice);
 
-        return setProductPrice(product, discountedPrice);
+        
     }
 
 
