@@ -9,15 +9,15 @@ public class User {
     private String country;
     
     
-    private String confirmationMessage;
+    
     private boolean feedbackRecorded;
     public User(String username) {
         this.username = username;
     }
     public String sendMessageToStoreOwner(String subject, String message) {
         // Simulate sending a message (In reality, this would interact with a messaging system)
-        confirmationMessage = "Message sent to store owner with subject: " + subject;
-        return confirmationMessage;
+       
+        return "Message sent to store owner with subject: " + subject;
     }
     public User(String username, String password, String email, String country, UserRole role) {
         this.username = username;
