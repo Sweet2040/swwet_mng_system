@@ -43,7 +43,6 @@ public boolean login(String username, String password) {
 
     public boolean logout(String username) {
         if (username == null) {
-        	//System.out.println("Username cannot be null.");
             return false;
         }
         if (loggedInUsers.remove(username)) {
