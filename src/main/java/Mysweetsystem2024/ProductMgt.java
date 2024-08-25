@@ -1,12 +1,16 @@
 package Mysweetsystem2024;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 public class ProductMgt {
 
-   private static final Logger LOGGER = Logger.getLogger(ProductMgt.class.getName());
+   
     private Map<String, Product> products = new HashMap<>();
+
+    // Add a new product
     public boolean addProduct(String name, String description, double price) {
         if (products.containsKey(name)) {
             return false; 
@@ -16,7 +20,7 @@ public class ProductMgt {
     }
 
    
-  public boolean updateProduct(String name, String newDescription, double newPrice) {
+    public boolean updateProduct(String name, String newDescription, double newPrice) {
         Product product = products.get(name);
         if (product == null) {
             return false; // Product does not exist
@@ -24,31 +28,41 @@ public class ProductMgt {
         product.setDescription(newDescription);
         product.setPrice(newPrice);
         return true;
-    } 
+    }
+            
+ 
+    public boolean removeProduct(String productName) {
+    	System.out.println("Attempting to remove product: " + productName);
+        
+        if (!products.containsKey(productName)) {
+        	  System.out.println("Product not found, removal failed: " + productName);
+            return false;
+        }
+        
+        products.remove(productName);
+        System.out.println("Product not found, removal failed: " + productName);
+        return true;
+    }
 
     
- public boolean removeProduct(String productName) {
- 
-    	 System.out.println("Attempting to remove product: " + productName);
-
-    	    if (products.containsKey(productName)) {
-    	        products.remove(productName);
-    	        System.out.println("Product removed successfully: " + productName);
-    	        return true;
-    	    } else {
-    	        System.out.println("Product not found, removal failed: " + productName);
-    	        return false;
-    	    }
- }
-
-
-
-
-	
+    
+    
+    
+    
+    
+    
     public boolean productExists(String name) {
         return products.containsKey(name);
     }
+    
+    
+    
+    
+    
+    
+    
 
+    
     public String getSalesAndProfitsReport() {
        
         StringBuilder report = new StringBuilder();
@@ -64,7 +78,7 @@ public class ProductMgt {
     
     
     public String getBestSellingProductsReport() {
-       
+        // Example implementation
         StringBuilder report = new StringBuilder();
         report.append("Best Selling Products:\n");
         // Example best-selling products and their sales figures
@@ -74,37 +88,55 @@ public class ProductMgt {
         return report.toString();
     }
     
-
+   
     public Product findProductByName(String productName) {
         return products.get(productName);
     }
- public boolean applyDiscount(String productName, double discountValue) {
-        Product product = findProductByName(productName);
     
+    
+    
+    
+    
+    
+    
+    
+  public boolean applyDiscount(String productName, double discountValue) {
+        // Find product by name
+        Product product = findProductByName(productName);
         if (product == null) {
-            LOGGER.log(Level.WARNING, "Product not found: {0}", productName);
+            System.out.println("Product not found: " + productName);
             return false;
         }
-        
+
+        // Apply discount
         double originalPrice = product.getPrice();
         double discountedPrice = originalPrice - (originalPrice * (discountValue / 100));
-        
-     
-             return discountedPrice >= 0 && setProductPrice(product, discountedPrice);
-    
+
+       // if (discountedPrice < 0) {
+            //System.out.println("Discounted price is negative. Discount Value: " + discountValue);
+            //return false;
+        	
+        //}
+        return discountedPrice >= 0 && setProductPrice(product, discountedPrice);
+
+       // product.setPrice(discountedPrice);
+        //return true;
     }
-   private boolean setProductPrice(Product product, double price) {
+  private boolean setProductPrice(Product product, double price) {
 	    product.setPrice(price);
 	    return true;
 	}
     
+      
 
 
+    // Get the price of a product
     public double getProductPrice(String name) {
         Product product = products.get(name);
         return (product != null) ? product.getPrice() : 0.0;
     }
 
+    // Inner class for Product
     private class Product {
         private String name;
         private String description;
@@ -116,7 +148,6 @@ public class ProductMgt {
             this.price = price;
         }
 
-      
         public void setDescription(String description) {
             this.description = description;
         }
@@ -128,7 +159,8 @@ public class ProductMgt {
         public void setPrice(double price) {
             this.price = price;
         }
-
+        
+        
     }
     
    
