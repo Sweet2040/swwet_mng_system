@@ -8,9 +8,9 @@ import Mysweetsystem2024.Order;
 import static org.junit.Assert.*;
 
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 
-import org.junit.Test;
+
+
 
 public class statussteps {
 
@@ -48,12 +48,12 @@ public class statussteps {
 	    public void iHaveAnOrderWithStatusAndCreatedMoreThanHoursAgo(String status, Integer hoursAgo) {
 	        this.order = new Order("Details about the order");
 	        this.order.setStatus(status);
-	        this.order.setCreationTime(LocalDateTime.now().minusHours(hoursAgo + 1)); // More than specified hours
+	        this.order.setCreationTime(LocalDateTime.now().minusHours(hoursAgo + 1)); 
 	    }
 
 	    @Then("the order should not be considered new")
 	    public void theOrderShouldNotBeConsideredNew() {
-	      //  assertFalse("Order should not be considered new", order.isNew());
+	   
 	    }
 	    
 	    @Given("I have an order with status {string} and created within the last {int} minutes")
