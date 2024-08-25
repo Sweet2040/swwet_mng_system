@@ -27,19 +27,19 @@ public class ProductMgt {
     } 
 
     
-public boolean removeProduct(String productName) {
-    LOGGER.log(Level.INFO, "Attempting to remove product: {0}", productName);
-    
-    if (!products.containsKey(productName)) {
-        LOGGER.log(Level.WARNING, "Product not found, removal failed: {0}", productName);
-        return false;
-    }
+ public boolean removeProduct(String productName) {
+ 
+    	 System.out.println("Attempting to remove product: " + productName);
 
-    products.remove(productName);
-    LOGGER.log(Level.INFO, "Product removed successfully: {0}", productName);
-    return true;
-}
-     
+    	    if (products.containsKey(productName)) {
+    	        products.remove(productName);
+    	        System.out.println("Product removed successfully: " + productName);
+    	        return true;
+    	    } else {
+    	        System.out.println("Product not found, removal failed: " + productName);
+    	        return false;
+    	    }
+ }
 
 
 
