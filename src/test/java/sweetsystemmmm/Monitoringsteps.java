@@ -14,14 +14,10 @@ public class Monitoringsteps {
     private String bestSellingProductsReport;
     private String userStatisticsReport;
 
-    public Monitoringsteps() {
-    	// This method is currently empty because it has not been implemented yet.
-    // Future implementation will include logic to verify that
-    }
     @Given("I am logged in as an Admin")
     public void iAmLoggedInAsAnAdmin() {
-        system = new Test(); // Initialize your system
-        system.loginAsAdmin(); // Method to simulate admin login
+        system = new Test(); 
+        system.loginAsAdmin();
     }
 
     @When("I navigate to the Financial Reports section")
@@ -36,32 +32,22 @@ public class Monitoringsteps {
 
     @Then("I should see the total profits for the period")
     public void iShouldSeeTheTotalProfitsForThePeriod() {
-        assertNotNull(financialReport); // Check that the report was generated
-
-       
+        assertNotNull(financialReport); 
         String expectedTotalProfits = "Total Profits: $10000"; 
-
-        
         assertTrue("Financial report does not contain expected total profits",
                    financialReport.contains(expectedTotalProfits));
-        
-      
         assertTrue("Financial report does not contain expected detailed report",
                    financialReport.contains("Detailed Report:"));
-        
-       
         String[] lines = financialReport.split("\n");
         assertTrue("Financial report is missing total profits line",
                    lines[0].contains(expectedTotalProfits));
-
-        
         assertTrue("Financial report is missing expected details",
                    financialReport.contains("Details here")); // Adjust as needed
     }
 
     @Then("I should see a detailed financial report")
     public void iShouldSeeADetailedFinancialReport() {
-        assertNotNull(financialReport); // Check that the report is detailed
+        assertNotNull(financialReport); 
        
     }
 
