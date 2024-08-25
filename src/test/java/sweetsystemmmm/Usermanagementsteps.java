@@ -36,7 +36,7 @@ public class Usermanagementsteps {
 
     @When("I create a new user account with the role {string}")
     public void iCreateANewUserAccountWithTheRole(String role) {
-        createdUser = new StoreOwner("john_doe", "password123", "john@example.com", "USA", "John's Sweets", "123 Sweet St", "123-456-7890");
+        createdUser = new StoreOwner("john_doe", "password123", "john@example.com", "USA", "John's Sweets", "123 Sweet St");
         boolean result = admin.createUser(createdUser.getUsername(), createdUser.getEmail());
         assertTrue("User account should be created", result);
         System.out.println("Creating a new user account with the role: " + role);
@@ -58,7 +58,7 @@ public class Usermanagementsteps {
 
     @Given("a user with the role {string} exists")
     public void aUserWithTheRoleExists(String role) {
-        createdUser = new StoreOwner("john_doe", "password123", "john@example.com", "USA", "John's Sweets", "123 Sweet St", "123-456-7890");
+        createdUser = new StoreOwner("john_doe", "password123", "john@example.com", "USA", "John's Sweets", "123 Sweet St");
         userRepository.addUser(createdUser);
         User retrievedUser = userRepository.getUser(createdUser.getUsername());
         assertNotNull("A user with the role should exist", retrievedUser);
