@@ -3,12 +3,9 @@ package Mysweetsystem2024;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
-import java.util.logging.Level;
+
 
 public class Test {
-
-
-
 	private static final Logger logger = Logger.getLogger(Test.class.getName());
 	private static final String USER_STATISTICS_SECTION = "User Statistics";
 	 private boolean adminLoggedIn = false;
@@ -42,7 +39,6 @@ public class Test {
     }
 }
 
-// Separate method for logging
 private void logNavigation(String section) {
     logger.info(String.format("Navigated to: %s", section));
 }
