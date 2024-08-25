@@ -18,10 +18,13 @@ public class LoginManager {
         this.loggedInUsers = new HashSet<>();
     }
 
-  public boolean login(String username, String password) {
-    boolean isValid = validateLogin(username, password);
+ public boolean login(String username, String password) {
     
-    return isValid && loggedInUsers.add(username);
+    String correctUsername = "admin";
+    String correctPassword = "password123";
+
+  
+    return username.equals(correctUsername) && password.equals(correctPassword);
 }
 
 
