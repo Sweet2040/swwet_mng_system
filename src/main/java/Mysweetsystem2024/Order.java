@@ -1,5 +1,6 @@
 package Mysweetsystem2024;
 
+
 import java.time.LocalDateTime;
 
 public class Order {
@@ -23,9 +24,9 @@ public class Order {
 	        this.creationTime = LocalDateTime.now(); 
 	    }
 
-	    public LocalDateTime getCreationTime() {
-			return creationTime;
-		}
+	    //public LocalDateTime getCreationTime() {
+			//return creationTime;
+	//	}
 
 		public void setCreationTime(LocalDateTime creationTime) {
 			this.creationTime = creationTime;
@@ -82,3 +83,4 @@ public class Order {
 		this.details = details;
 	}
 }
+
