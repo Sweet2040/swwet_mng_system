@@ -6,7 +6,7 @@ public class Test {
 
 
 	private static final String USER_STATISTICS_REPORT = "User Statistics";
-	private static final String FINANCIAL_REPORT = "Financial Report";
+	
 
 
 	
@@ -16,7 +16,7 @@ public class Test {
 
 	    public Test() {
 	       
-	        reports.put(FINANCIAL_REPORT, "Total Profits: $10000\nDetailed Report: [Details here]");
+	        reports.put("Financial Report", "Total Profits: $10000\nDetailed Report: [Details here]");
 	        reports.put("Best-Selling Products", "Store A: Product X - 500 units\nStore B: Product Y - 300 units");
 	        reports.put(USER_STATISTICS_REPORT, "Nablus: 200 users\nJenin: 150 users");
 	    }
@@ -40,8 +40,8 @@ public class Test {
 
 	   
 	    public String requestFinancialReport() {
-	        if (FINANCIAL_REPORT.equals(currentSection)) {
-	            return reports.get(FINANCIAL_REPORT);
+	        if ("Financial Report".equals(currentSection)) {
+	            return reports.get("Financial Report");
 	        } else {
 	            throw new IllegalStateException("Not in the Financial Reports section.");
 	        }
