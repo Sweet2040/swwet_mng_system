@@ -21,9 +21,7 @@ public class ProductMgt {
    
     public boolean updateProduct(String name, String newDescription, double newPrice) {
         Product product = products.get(name);
-        if (product == null) {
-            return false; // Product does not exist
-        }
+      
         product.setDescription(newDescription);
         product.setPrice(newPrice);
         return true;
