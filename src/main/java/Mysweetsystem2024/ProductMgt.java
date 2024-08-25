@@ -9,8 +9,6 @@ public class ProductMgt {
 
     private static final Logger LOGGER = Logger.getLogger(ProductMgt.class.getName());
     private Map<String, Product> products = new HashMap<>();
-
-    // Add a new product
     public boolean addProduct(String name, String description, double price) {
         if (products.containsKey(name)) {
             return false;
@@ -57,10 +55,8 @@ public class ProductMgt {
     }
 
     public String getBestSellingProductsReport() {
-        // Example implementation
         StringBuilder report = new StringBuilder();
         report.append("Best Selling Products:\n");
-        // Example best-selling products and their sales figures
         report.append("cake: $150\n");
         report.append("cinamon: $200\n");
         report.append("chocklate: $250\n");
@@ -72,7 +68,6 @@ public class ProductMgt {
     }
 
     public boolean applyDiscount(String productName, double discountValue) {
-        // Find product by name
         Product product = findProductByName(productName);
         if (product == null) {
             LOGGER.log(Level.WARNING, "Product not found: {0}", productName);
