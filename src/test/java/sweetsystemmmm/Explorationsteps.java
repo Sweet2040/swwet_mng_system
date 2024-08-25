@@ -1,8 +1,6 @@
 package sweetsystemmmm;
 
 import static org.junit.Assert.assertTrue;
-
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -16,11 +14,9 @@ public class Explorationsteps {
     
     private String currentPage;
     private String selectedDessert;
- 
-
     @Given("the user is on the dessert recipes page")
     public void theUserIsOnTheDessertRecipesPage() {
-        // Set the current page to dessert recipes page
+       
         currentPage = "dessert recipes";
         System.out.println("User is on the dessert recipes page.");
     }
