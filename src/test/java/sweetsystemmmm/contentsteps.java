@@ -1,6 +1,6 @@
 package sweetsystemmmm;
 import io.cucumber.java.en.*;
-import Myssweetsystem2024.MyApplication;
+import Mysweetsystem2024.MyApplication;
 
 import java.util.HashMap;
 import java.util.Map;
