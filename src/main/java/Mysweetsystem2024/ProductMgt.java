@@ -32,10 +32,7 @@ public class ProductMgt {
      public boolean removeProduct(String productName) {
         logger.log(Level.INFO, "Attempting to remove product: {0}", productName);
 
-        if (!products.containsKey(productName)) {
-            logger.log(Level.WARNING, "Product not found, removal failed: {0}", productName);
-            return false;
-        }
+      
 
         products.remove(productName);
         logger.log(Level.INFO, "Product successfully removed: {0}", productName);
