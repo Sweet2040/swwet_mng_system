@@ -1,11 +1,14 @@
 package Mysweetsystem2024;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class ProductMgt {
 
    
     private Map<String, Product> products = new HashMap<>();
-
+private static final Logger logger = Logger.getLogger(ProductMgt.class.getName());
     // Add a new product
     public boolean addProduct(String name, String description, double price) {
         if (products.containsKey(name)) {
@@ -19,7 +22,9 @@ public class ProductMgt {
     public boolean updateProduct(String name, String newDescription, double newPrice) {
         Product product = products.get(name);
         if (product == null) {
-            return false; // Product does not exist
+	 logger.log(Level.WARNING, "Product with name '{0}' does not exist.", name);
+            return false;
+           
         }
         product.setDescription(newDescription);
         product.setPrice(newPrice);
