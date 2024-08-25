@@ -8,10 +8,10 @@ import static org.junit.Assert.assertTrue;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import myssweetsystem.MyApplication;
-import myssweetsystem.User;
-import myssweetsystem.UserRole;
-import myssweetsystem.signupmanager;
+import Myssweetsystem2024.MyApplication;
+import Myssweetsystem2024.User;
+import Myssweetsystem2024.UserRole;
+import Myssweetsystem2024.signupmanager;
 
 public class signupsteps {
 
