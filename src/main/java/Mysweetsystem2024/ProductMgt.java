@@ -71,24 +71,25 @@ public class ProductMgt {
     public Product findProductByName(String productName) {
         return products.get(productName);
     }
-  public boolean applyDiscount(String productName, double discountValue) {
-      
+ public boolean applyDiscount(String productName, double discountValue) {
         Product product = findProductByName(productName);
         if (product == null) {
-            System.out.println("Product not found: " + productName);
+            LOGGER.log(Level.WARNING, "Product not found: {0}", productName);
             return false;
         }
+        
         double originalPrice = product.getPrice();
         double discountedPrice = originalPrice - (originalPrice * (discountValue / 100));
-
+        
         if (discountedPrice < 0) {
-            System.out.println("Discounted price is negative. Discount Value: " + discountValue);
+            LOGGER.log(Level.WARNING, "Discounted price is negative. Discount Value: {0}", discountValue);
             return false;
         }
-
+        
         product.setPrice(discountedPrice);
         return true;
     }
+
 
     public double getProductPrice(String name) {
         Product product = products.get(name);
