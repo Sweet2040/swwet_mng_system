@@ -15,7 +15,10 @@ public class Post {
         this.status = "active"; // Default status if needed
     }
 
-   
+    // Constructor without username
+   // public Post(String imagePath, String text) {
+    //    this(null, imagePath, text); // Delegate to the other constructor with default username
+    //}
 
     // Getters and Setters
     public String getDescription() {
@@ -38,9 +41,9 @@ public class Post {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+    //public void setStatus(String status) {
+      //  this.status = status;
+    //}
 
     public String getUsername() {
         return username;
@@ -61,3 +64,4 @@ public class Post {
                 '}';
     }
 }
+
