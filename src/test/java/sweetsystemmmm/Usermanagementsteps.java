@@ -1,15 +1,16 @@
 package sweetsystemmmm;
 
+
 import static org.junit.Assert.*;
 
-
-import Mysweetsystem2024.Admin;
-import Mysweetsystem2024.StoreOwner;
-import Mysweetsystem2024.User;
-import Mysweetsystem2024.UserRepositry;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import Mysweetsystem2024.Admin;
+import Mysweetsystem2024.MyApplication;
+import Mysweetsystem2024.StoreOwner;
+import Mysweetsystem2024.User;
+import Mysweetsystem2024.UserRepositry;
 
 public class Usermanagementsteps {
 
@@ -17,9 +18,14 @@ public class Usermanagementsteps {
     private UserRepositry userRepository;
     private StoreOwner createdUser;
     private boolean isUserDeleted;
+    MyApplication app;
     
     
-   
+    public Usermanagementsteps(MyApplication app) {
+    	this.app=app;
+    	
+    }
+
     @Given("I am logged in as an admin")
     public void iAmLoggedInAsAnAdmin() {
         userRepository = new UserRepositry();
@@ -30,7 +36,7 @@ public class Usermanagementsteps {
 
     @When("I create a new user account with the role {string}")
     public void iCreateANewUserAccountWithTheRole(String role) {
-        createdUser = new StoreOwner("john_doe", "password123", "john@example.com", "USA", "John's Sweets", "123 Sweet St");
+        createdUser = new StoreOwner("john_doe", "password123", "john@example.com", "USA", "John's Sweets", "123 Sweet St", "123-456-7890");
         boolean result = admin.createUser(createdUser.getUsername(), createdUser.getEmail());
         assertTrue("User account should be created", result);
         System.out.println("Creating a new user account with the role: " + role);
@@ -52,7 +58,7 @@ public class Usermanagementsteps {
 
     @Given("a user with the role {string} exists")
     public void aUserWithTheRoleExists(String role) {
-        createdUser = new StoreOwner("john_doe", "password123", "john@example.com", "USA", "John's Sweets", "123 Sweet St");
+        createdUser = new StoreOwner("john_doe", "password123", "john@example.com", "USA", "John's Sweets", "123 Sweet St", "123-456-7890");
         userRepository.addUser(createdUser);
         User retrievedUser = userRepository.getUser(createdUser.getUsername());
         assertNotNull("A user with the role should exist", retrievedUser);
@@ -103,8 +109,6 @@ public class Usermanagementsteps {
         System.out.println("User no longer appears in the list of store owners");
     }
 }
-   
-    
-    
+ 
 
     
