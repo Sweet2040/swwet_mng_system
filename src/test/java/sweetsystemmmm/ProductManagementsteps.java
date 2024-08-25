@@ -13,7 +13,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import Mysweetsystem2024.MyApplication;
-import Mysweetsystem2024.productmgt;
+import Mysweetsystem2024.ProductMgt;
 
 public class ProductManagementsteps {
     private productmgt productManagement;
