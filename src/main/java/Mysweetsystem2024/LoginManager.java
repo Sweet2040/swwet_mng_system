@@ -18,26 +18,15 @@ public class LoginManager {
         this.loggedInUsers = new HashSet<>();
     }
 
-/*public boolean login(String username, String password) {
-        if (validateLogin(username, password)) {
-             String currentUser = username;
-             loggedInUsers.add(currentUser);
-            logger.log(Level.INFO, "Login successful. Welcome, {0}!", currentUser);
-            return true;
-        } else {
-            logger.log(Level.WARNING, "Login failed. Invalid username or password.");
-            return false;
-        }
-    }*/
-     public boolean login(String username, String password) {
-        boolean isValid = validateLogin(username, password);
-        
-        System.out.println(isValid 
-            ? "Login successful. Welcome, " + username + "!" 
-            : "Login failed. Invalid username or password.");
-        
-        return isValid && loggedInUsers.add(username);
-    }
+  public boolean login(String username, String password) {
+    boolean isValid = validateLogin(username, password);
+    
+    logger.log(isValid ? Level.INFO : Level.WARNING,
+               isValid ? "Login successful. Welcome, {0}!" : "Login failed. Invalid username or password.",
+               username);
+    
+    return isValid && loggedInUsers.add(username);
+}
 
 
 
