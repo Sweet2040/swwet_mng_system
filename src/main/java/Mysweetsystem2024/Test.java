@@ -27,18 +27,15 @@ public class Test {
                logger.log(Level.INFO, "Admin logged in."); // Replace System.out.println with logger
            }
 	    
-	
 
-	    
-	    public void navigateToSection(String section) {
-	        if (adminLoggedIn) {
-	            currentSection = section;
-	            System.out.println("Navigated to: " + section);
-	        } else {
-	            throw new IllegalStateException("Admin not logged in. Please log in first.");
-	        }
-	    }
-
+                public void navigateToSection(String section) {
+        if (adminLoggedIn) {
+            currentSection = section;
+            logger.log(Level.INFO, "Navigated to: {0}", section); // Replace System.out.println with logger
+        } else {
+            throw new IllegalStateException("Admin not logged in. Please log in first.");
+        }
+    }
 	   
 	    public String requestFinancialReport() {
 	        if ("Financial Reports".equals(currentSection)) {
