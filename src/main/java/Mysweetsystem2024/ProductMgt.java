@@ -30,22 +30,17 @@ private static final Logger logger = Logger.getLogger(ProductMgt.class.getName()
         product.setPrice(newPrice);
         return true;
     }
-            
-    
-    
-    
+ 
+   public boolean removeProduct(String productName) {
+        logger.log(Level.INFO, "Attempting to remove product: {0}", productName);
 
-
-    public boolean removeProduct(String productName) {
-    	System.out.println("Attempting to remove product: " + productName);
-        
         if (!products.containsKey(productName)) {
-        	  System.out.println("Product not found, removal failed: " + productName);
+            logger.log(Level.WARNING, "Product not found, removal failed: {0}", productName);
             return false;
         }
-        
+
         products.remove(productName);
-        System.out.println("Product not found, removal failed: " + productName);
+        logger.log(Level.INFO, "Product successfully removed: {0}", productName);
         return true;
     }
 
