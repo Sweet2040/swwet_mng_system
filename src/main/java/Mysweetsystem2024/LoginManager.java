@@ -41,17 +41,23 @@ public boolean login(String username, String password) {
 
    
 
-    public boolean logout(String username) {
+
+
+public boolean logout(String username) {
         if (username == null) {
+            logger.log(Level.WARNING, "Username cannot be null.");
             return false;
         }
+
         if (loggedInUsers.remove(username)) {
+            logger.log(Level.INFO, "User {0} logged out successfully.", username);
             return true;
         } else {
-            System.out.println("User is not logged in.");
+            logger.log(Level.WARNING, "User {0} is not logged in.", username);
             return false;
         }
     }
+    
 
     public boolean isUserLoggedIn(String username) {
         return loggedInUsers.contains(username);
