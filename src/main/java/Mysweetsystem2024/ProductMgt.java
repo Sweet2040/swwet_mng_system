@@ -93,30 +93,38 @@ public class ProductMgt {
         return products.get(productName);
     }
     
-    
-    
-    
-    
-    
-    
-    
-  public boolean applyDiscount(String productName, double discountValue) {
+   
+   
+ public boolean applyDiscount(String productName, double discountValue) {
         // Find product by name
         Product product = findProductByName(productName);
         if (product == null) {
-            System.out.println("Product not found: " + productName);
+            logger.log(Level.WARNING, "Product not found: {0}", productName);
             return false;
         }
-
    
         double originalPrice = product.getPrice();
         double discountedPrice = originalPrice - (originalPrice * (discountValue / 100));
 
-    
-        return discountedPrice >= 0 && setProductPrice(product, discountedPrice);
+        // Ensure discounted price is not negative before setting
+        if (discountedPrice < 0) {
+            logger.log(Level.WARNING, "Discounted price is negative for product {0}. Discount value: {1}", new Object[]{productName, discountValue});
+            return false;
+        }
 
-    
+        return setProductPrice(product, discountedPrice);
     }
+
+
+
+
+
+
+
+
+
+
+	
   private boolean setProductPrice(Product product, double price) {
 	    product.setPrice(price);
 	    return true;
