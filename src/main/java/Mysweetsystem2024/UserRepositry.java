@@ -39,11 +39,6 @@ public class UserRepositry {
         return false;
     }
 
-   // public User getArchivedUser(String username) {
-     //   return archivedUsers.get(username);
-    //}	
-	
-	
 	
 	
 	
