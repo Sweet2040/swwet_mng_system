@@ -7,8 +7,8 @@ import static org.junit.Assert.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import Myssweetsystem2024.MyApplication;
-import Myssweetsystem2024.Order;
+import Mysweetsystem2024.MyApplication;
+import Mysweetsystem2024.Order;
 
 public class ordersteps {
 	private String orderStringRepresentation;
