@@ -24,10 +24,7 @@ public class Order {
 	        this.creationTime = LocalDateTime.now(); 
 	    }
 
-	    //public LocalDateTime getCreationTime() {
-			//return creationTime;
-	//	}
-
+	 
 		public void setCreationTime(LocalDateTime creationTime) {
 			this.creationTime = creationTime;
 		}
