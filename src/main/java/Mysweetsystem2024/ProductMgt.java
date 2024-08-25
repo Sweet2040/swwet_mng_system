@@ -90,10 +90,7 @@ public class ProductMgt {
  public boolean applyDiscount(String productName, double discountValue) {
         // Find product by name
         Product product = findProductByName(productName);
-        if (product == null) {
-            logger.log(Level.WARNING, "Product not found: {0}", productName);
-            return false;
-        }
+       
    
         double originalPrice = product.getPrice();
         double discountedPrice = originalPrice - (originalPrice * (discountValue / 100));
