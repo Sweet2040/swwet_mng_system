@@ -2,18 +2,20 @@ package sweetsystemmmm;
 
 
 
+
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import Myssweetsystem2024.LoginManager;
+import Myssweetsystem2024.MyApplication;
+import Myssweetsystem2024.User;
+import Myssweetsystem2024.UserRole;
+
 import static org.junit.Assert.*;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import Mysweetsystem2024.LoginManager;
-import Mysweetsystem2024.User;
-
 
 public class loginsteps {
 
@@ -25,20 +27,18 @@ public class loginsteps {
     @Before
     public void setUp() {
         // Initialize the LoginManager with some sample users
-        Map<String, User> localusers = new HashMap<>();
+        Map<String, User> users = new HashMap<>();
         users.put("shahd", new User("shahd", "password123", "ADMIN"));
         users.put("admin1", new User("admin1", "adminpass", "ADMIN"));
         // Add more users as needed
-        loginManager = new LoginManager(localusers);
+        loginManager = new LoginManager(users);
     }
     // Initialize LoginManager with a dummy map of users
 
 
-
-    public loginsteps() {
-        //hi
-    	}
-    
+    private  MyApplication app;
+    public loginsteps(MyApplication app) {
+    	this.app=app;}
 
     @Given("that the admin {string} is not logged in")
     public void thatTheAdminIsNotLoggedIn(String username) {
@@ -93,8 +93,8 @@ public class loginsteps {
 
     @Then("supplier login succeeds")
     public void supplierLoginSucceeds() {
-       
-        //not implemented yet
+       // assertTrue("Supplier should be logged in", loginManager.isUserLoggedIn(this.username));
+        //assertTrue("Login should be successful", loginSuccess);
     }
 
     @Then("supplier login fails")
