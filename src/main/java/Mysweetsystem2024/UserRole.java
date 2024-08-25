@@ -1,5 +1,6 @@
 package Mysweetsystem2024;
 
+
 public enum UserRole {
 
 	 ADMIN,
