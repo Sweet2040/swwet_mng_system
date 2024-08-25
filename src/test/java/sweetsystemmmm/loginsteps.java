@@ -7,10 +7,10 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import Myssweetsystem2024.LoginManager;
-import Myssweetsystem2024.MyApplication;
-import Myssweetsystem2024.User;
-import Myssweetsystem2024.UserRole;
+import Mysweetsystem2024.LoginManager;
+import Mysweetsystem2024.MyApplication;
+import Mysweetsystem2024.User;
+import Mysweetsystem2024.UserRole;
 
 import static org.junit.Assert.*;
 
