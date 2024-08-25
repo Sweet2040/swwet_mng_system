@@ -32,15 +32,15 @@ public class ProductMgt {
             
  
     public boolean removeProduct(String productName) {
-        logger.info("Attempting to remove product: " + productName);
+        logger.info(String.format("Attempting to remove product: %s", productName));
         
         if (!products.containsKey(productName)) {
-            logger.warning("Product not found, removal failed: " + productName);
+            logger.warning(String.format("Product not found, removal failed: %s", productName));
             return false;
         }
         
         products.remove(productName);
-        logger.info("Product successfully removed: " + productName);
+        logger.info(String.format("Product successfully removed: %s", productName));
         return true;
     }
 
