@@ -27,11 +27,11 @@ public class loginsteps {
     @Before
     public void setUp() {
         // Initialize the LoginManager with some sample users
-        Map<String, User> users = new HashMap<>();
+        Map<String, User> testusers = new HashMap<>();
         users.put("shahd", new User("shahd", "password123", "ADMIN"));
         users.put("admin1", new User("admin1", "adminpass", "ADMIN"));
         // Add more users as needed
-        loginManager = new LoginManager(users);
+        loginManager = new LoginManager(testusers);
     }
     // Initialize LoginManager with a dummy map of users
 
