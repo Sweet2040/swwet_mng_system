@@ -1,5 +1,6 @@
 package Mysweetsystem2024;
 import java.util.logging.Logger;
+import java.lang.System.Logger.Level;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,8 +10,6 @@ public class ProductMgt {
  private static final Logger logger = Logger.getLogger( ProductMgt.class.getName());
    
     private Map<String, Product> products = new HashMap<>();
-
-    // Add a new product
     public boolean addProduct(String name, String description, double price) {
         if (products.containsKey(name)) {
             return false; 
@@ -101,32 +100,24 @@ public class ProductMgt {
     
     
   public boolean applyDiscount(String productName, double discountValue) {
-        // Find product by name
-        Product product = findProductByName(productName);
-        if (product == null) {
-            System.out.println("Product not found: " + productName);
-            return false;
-        }
-
-        // Apply discount
-        double originalPrice = product.getPrice();
-        double discountedPrice = originalPrice - (originalPrice * (discountValue / 100));
-
-       // if (discountedPrice < 0) {
-            //System.out.println("Discounted price is negative. Discount Value: " + discountValue);
-            //return false;
-        	
-        //}
-        return discountedPrice >= 0 && setProductPrice(product, discountedPrice);
-
-       // product.setPrice(discountedPrice);
-        //return true;
+    Product product = findProductByName(productName);
+    if (product == null) {
+        LOGGER.log(Level.WARNING, "Product not found: {0}", productName);
+        return false;
     }
-  private boolean setProductPrice(Product product, double price) {
-	    product.setPrice(price);
-	    return true;
-	}
-    
+
+    double originalPrice = product.getPrice();
+    double discountedPrice = originalPrice - (originalPrice * (discountValue / 100));
+
+    // Only set the price if the discounted price is valid
+    return discountedPrice >= 0 && setProductPrice(product, discountedPrice);
+}
+
+private boolean setProductPrice(Product product, double price) {
+    product.setPrice(price);
+    return true;
+}
+
       
 
 
