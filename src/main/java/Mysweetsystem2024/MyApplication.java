@@ -39,9 +39,7 @@ public class MyApplication {
         return users.get(username);
     }
     public boolean addUser(User user) {
-        if (userExists(user.getUsername())) {
-            return false;
-        }
+     
         users.put(user.getUsername(), user);
         return true;
     
