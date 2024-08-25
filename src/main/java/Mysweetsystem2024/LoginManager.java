@@ -18,7 +18,7 @@ public class LoginManager {
         this.loggedInUsers = new HashSet<>();
     }
 
-public boolean login(String username, String password) {
+/*public boolean login(String username, String password) {
         if (validateLogin(username, password)) {
              String currentUser = username;
              loggedInUsers.add(currentUser);
@@ -28,7 +28,17 @@ public boolean login(String username, String password) {
             logger.log(Level.WARNING, "Login failed. Invalid username or password.");
             return false;
         }
+    }*/
+     public boolean login(String username, String password) {
+        boolean isValid = validateLogin(username, password);
+        
+        System.out.println(isValid 
+            ? "Login successful. Welcome, " + username + "!" 
+            : "Login failed. Invalid username or password.");
+        
+        return isValid && loggedInUsers.add(username);
     }
+
 
 
 
