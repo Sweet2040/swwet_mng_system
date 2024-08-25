@@ -32,9 +32,7 @@ public class Test {
         if (adminLoggedIn) {
             currentSection = section;
             logger.log(Level.INFO, "Navigated to: {0}", section); // Replace System.out.println with logger
-        } else {
-            throw new IllegalStateException("Admin not logged in. Please log in first.");
-        }
+        } 
     }
 	   
 	    public String requestFinancialReport() {
