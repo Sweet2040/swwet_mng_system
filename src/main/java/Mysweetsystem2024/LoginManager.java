@@ -21,10 +21,6 @@ public class LoginManager {
   public boolean login(String username, String password) {
     boolean isValid = validateLogin(username, password);
     
-    logger.log(isValid ? Level.INFO : Level.WARNING,
-               isValid ? "Login successful. Welcome, {0}!" : "Login failed. Invalid username or password.",
-               username);
-    
     return isValid && loggedInUsers.add(username);
 }
 
