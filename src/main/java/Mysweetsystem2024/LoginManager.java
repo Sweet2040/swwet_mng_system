@@ -10,7 +10,6 @@ public class LoginManager {
     private final Map<String, User> users;
     private final Set<String> loggedInUsers;
     private String currentUser;
-
     public LoginManager(Map<String, User> users) {
         this.users = users;
         this.loggedInUsers = new HashSet<>();
