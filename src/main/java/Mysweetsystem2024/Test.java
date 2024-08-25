@@ -3,6 +3,8 @@ package Mysweetsystem2024;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
+import java.util.logging.Level;
+
 public class Test {
 
 
@@ -52,7 +54,9 @@ private void logNavigation(String section) {
 	        if ("Financial Reports".equals(currentSection)) {
 	            return reports.get("Financial Report");
 	        } else {
-	            throw new IllegalStateException("Not in the Financial Reports section.");
+	           // throw new IllegalStateException("Not in the Financial Reports section.");
+			logger.log(Level.WARNING, "Attempted to request financial report outside of Financial Reports section.");
+                         return null; 
 	        }
 	    }
 
