@@ -1,22 +1,30 @@
 package sweetsystemmmm;
 
+
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import Mysweetsystem2024.MyApplication;
 
 public class Explorationsteps {
+
     private String searchQuery;
     private String filter;
     private boolean isSearchSuccessful;
     private boolean isFilterSuccessful;
     private boolean isPurchaseSuccessful;
-    
+    private String errorMessage;
     private String currentPage;
     private String selectedDessert;
+    private  MyApplication app;
+    public Explorationsteps (MyApplication app) {
+    	this.app=app;}
     @Given("the user is on the dessert recipes page")
     public void theUserIsOnTheDessertRecipesPage() {
-       
+        // Set the current page to dessert recipes page
         currentPage = "dessert recipes";
         System.out.println("User is on the dessert recipes page.");
     }
@@ -30,7 +38,7 @@ public class Explorationsteps {
             System.out.println("User searched for: " + searchQuery);
         } else {
             isSearchSuccessful = false;
-           // Future use of error message can be implemented here
+            errorMessage = "Not on the dessert recipes page";
         }
     }
 
@@ -50,7 +58,7 @@ public class Explorationsteps {
             System.out.println("User filtered recipes by: " + filter);
         } else {
             isFilterSuccessful = false;
-           // Future use of error message can be implemented here
+            errorMessage = "Not on the dessert recipes page";
         }
     }
 
@@ -90,7 +98,7 @@ public class Explorationsteps {
             }
         } else {
             isPurchaseSuccessful = false;
-            // Future use of error message can be implemented here
+            errorMessage = "Not on the dessert details page";
         }
     }
 
