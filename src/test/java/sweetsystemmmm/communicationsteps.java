@@ -5,13 +5,17 @@ import org.junit.Assert;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import Mysweetsystem2024.MyApplication;
 
 public class communicationsteps {
 
 
-  
+    private String messageSubject;
+    private String messageBody;
     private String emailContent;
-
+    private  MyApplication app;
+    public communicationsteps (MyApplication app) {
+    	this.app=app;}
     @Given("I am logged in as a Store Owner")
     public void iAmLoggedInAsAStoreOwner() {
         // Simulate logging in as a Store Owner
@@ -43,7 +47,8 @@ public class communicationsteps {
     @When("I enter the message subject and body")
     public void iEnterTheMessageSubjectAndBody() {
         // Simulate entering message details
-      
+        messageSubject = "Subject"; // Example subject
+        messageBody = "Message body"; // Example body
         System.out.println("Entered message subject and body");
     }
 
