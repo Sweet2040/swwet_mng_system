@@ -16,15 +16,19 @@ public class ProductMgt {
     }
 
    
-    public boolean updateProduct(String name, String newDescription, double newPrice) {
+   public boolean updateProduct(String name, String newDescription, double newPrice) {
         Product product = products.get(name);
-        if (product == null) {
-            return false; // Product does not exist
-        }
+
+        // Directly return false if product is null, otherwise update and return true
+        return product != null && updateProductDetails(product, newDescription, newPrice);
+    }
+
+    private boolean updateProductDetails(Product product, String newDescription, double newPrice) {
         product.setDescription(newDescription);
         product.setPrice(newPrice);
         return true;
     }
+
     
 public boolean removeProduct(String productName) {
     LOGGER.log(Level.INFO, "Attempting to remove product: {0}", productName);
