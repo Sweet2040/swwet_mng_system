@@ -3,6 +3,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Test {
+
+
+	private static final String USER_STATISTICS_REPORT = "User Statistics";
 	 private boolean adminLoggedIn = false;
 	    private String currentSection = "";
 	    private Map<String, String> reports = new HashMap<>();
@@ -11,7 +14,7 @@ public class Test {
 	       
 	        reports.put("Financial Report", "Total Profits: $10000\nDetailed Report: [Details here]");
 	        reports.put("Best-Selling Products", "Store A: Product X - 500 units\nStore B: Product Y - 300 units");
-	        reports.put("User Statistics", "Nablus: 200 users\nJenin: 150 users");
+	        reports.put(USER_STATISTICS_REPORT, "Nablus: 200 users\nJenin: 150 users");
 	    }
 
 	    
@@ -51,8 +54,8 @@ public class Test {
 
 	    
 	    public String requestUserStatisticsByCity() {
-	        if ("User Statistics".equals(currentSection)) {
-	            return reports.get("User Statistics");
+	        if (USER_STATISTICS_REPORT.equals(currentSection)) {
+	            return reports.get(USER_STATISTICS_REPORT);
 	        } else {
 	            throw new IllegalStateException("Not in the User Statistics section.");
 	        }
