@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class MyApplication {
     private Map<String, User> users;    
-    private String currentUser; 
+    
 
     
     
