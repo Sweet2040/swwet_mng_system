@@ -3,7 +3,7 @@ package sweetsystemmmm;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
-import myssweetsystem.Order;
+import Myssweetsystem2024.Order;
 
 import static org.junit.Assert.*;
 
