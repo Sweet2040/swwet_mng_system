@@ -1,12 +1,12 @@
 package Mysweetsystem2024;
-
+import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class ProductMgt {
-
+ private static final Logger logger = Logger.getLogger( ProductMgt.class.getName());
    
     private Map<String, Product> products = new HashMap<>();
 
@@ -32,15 +32,15 @@ public class ProductMgt {
             
  
     public boolean removeProduct(String productName) {
-    	System.out.println("Attempting to remove product: " + productName);
+        logger.info("Attempting to remove product: " + productName);
         
         if (!products.containsKey(productName)) {
-        	  System.out.println("Product not found, removal failed: " + productName);
+            logger.warning("Product not found, removal failed: " + productName);
             return false;
         }
         
         products.remove(productName);
-        System.out.println("Product not found, removal failed: " + productName);
+        logger.info("Product successfully removed: " + productName);
         return true;
     }
 
