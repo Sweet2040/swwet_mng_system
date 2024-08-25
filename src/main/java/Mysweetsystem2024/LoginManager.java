@@ -32,10 +32,6 @@ public class LoginManager {
         return user != null && user.getPassword().equals(password);
     }
 
-    public String getCurrentUser() {
-        return currentUser;
-    }
-
 
      public boolean logout(String username) {
         if (username == null) {
