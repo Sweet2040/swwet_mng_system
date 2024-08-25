@@ -49,15 +49,11 @@ public boolean login(String username, String password) {
 
 
 public boolean logout(String username) {
-        if (username == null) {
-            return false;
-        }
+       
 
         if (loggedInUsers.remove(username)) {
             return true;
-        } else {
-            logger.log(Level.WARNING, "User {0} is not logged in.", username);
-            return false;
+        
         }
     }
     
