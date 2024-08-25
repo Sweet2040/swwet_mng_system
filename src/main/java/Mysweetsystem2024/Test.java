@@ -40,7 +40,7 @@ public class Test {
 
 	   
 	    public String requestFinancialReport() {
-	        if ("Financial Report".equals(currentSection)) {
+	        if ("Financial Reports".equals(currentSection)) {
 	            return reports.get("Financial Report");
 	        } else {
 	            throw new IllegalStateException("Not in the Financial Reports section.");
