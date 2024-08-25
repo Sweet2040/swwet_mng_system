@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class productmgt {
+public class ProductMgt {
 
    
     private Map<String, Product> products = new HashMap<>();
