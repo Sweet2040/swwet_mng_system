@@ -74,6 +74,7 @@ public boolean removeProduct(String productName) {
     }
  public boolean applyDiscount(String productName, double discountValue) {
         Product product = findProductByName(productName);
+    
         if (product == null) {
             LOGGER.log(Level.WARNING, "Product not found: {0}", productName);
             return false;
@@ -82,14 +83,15 @@ public boolean removeProduct(String productName) {
         double originalPrice = product.getPrice();
         double discountedPrice = originalPrice - (originalPrice * (discountValue / 100));
         
-        if (discountedPrice < 0) {
-            LOGGER.log(Level.WARNING, "Discounted price is negative. Discount Value: {0}", discountValue);
-            return false;
-        }
-        
-        product.setPrice(discountedPrice);
-        return true;
+     
+             return discountedPrice >= 0 && setProductPrice(product, discountedPrice);
+    
     }
+   private boolean setProductPrice(Product product, double price) {
+	    product.setPrice(price);
+	    return true;
+	}
+    
 
 
     public double getProductPrice(String name) {
