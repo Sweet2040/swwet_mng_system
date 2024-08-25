@@ -1,15 +1,11 @@
 package Mysweetsystem2024;
-import java.util.logging.Logger;
-import java.lang.System.Logger.Level;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class ProductMgt {
- private static final Logger logger = Logger.getLogger( ProductMgt.class.getName());
+
    
     private Map<String, Product> products = new HashMap<>();
+
+    // Add a new product
     public boolean addProduct(String name, String description, double price) {
         if (products.containsKey(name)) {
             return false; 
@@ -29,17 +25,21 @@ public class ProductMgt {
         return true;
     }
             
- 
+    
+    
+    
+
+
     public boolean removeProduct(String productName) {
-        logger.info(String.format("Attempting to remove product: %s", productName));
+    	System.out.println("Attempting to remove product: " + productName);
         
         if (!products.containsKey(productName)) {
-            logger.warning(String.format("Product not found, removal failed: %s", productName));
+        	  System.out.println("Product not found, removal failed: " + productName);
             return false;
         }
         
         products.remove(productName);
-        logger.info(String.format("Product successfully removed: %s", productName));
+        System.out.println("Product not found, removal failed: " + productName);
         return true;
     }
 
@@ -87,7 +87,6 @@ public class ProductMgt {
         return report.toString();
     }
     
-   
     public Product findProductByName(String productName) {
         return products.get(productName);
     }
@@ -95,33 +94,30 @@ public class ProductMgt {
     
     
     
-    public boolean applyDiscount(String productName, double discountValue) {
+    
+    
+    
+    
+  public boolean applyDiscount(String productName, double discountValue) {
+        // Find product by name
         Product product = findProductByName(productName);
         if (product == null) {
-            LOGGER.log(Level.WARNING, "Product not found: {0}", productName);
+            System.out.println("Product not found: " + productName);
             return false;
         }
-        
+
+ 
         double originalPrice = product.getPrice();
         double discountedPrice = originalPrice - (originalPrice * (discountValue / 100));
-        
-        if (discountedPrice < 0) {
-            LOGGER.log(Level.WARNING, "Discounted price is negative. Discount Value: {0}", discountValue);
-            return false;
-        } 
-        
-        product.setPrice(discountedPrice);
-        return true;
-    } 
-    
-    
-    
-  
 
-      
+       
+        return discountedPrice >= 0 && setProductPrice(product, discountedPrice);
+    }
+  private boolean setProductPrice(Product product, double price) {
+	    product.setPrice(price);
+	    return true;
+	}
 
-
-    // Get the price of a product
     public double getProductPrice(String name) {
         Product product = products.get(name);
         return (product != null) ? product.getPrice() : 0.0;
@@ -139,6 +135,8 @@ public class ProductMgt {
             this.price = price;
         }
 
+    
+
         public void setDescription(String description) {
             this.description = description;
         }
@@ -150,10 +148,11 @@ public class ProductMgt {
         public void setPrice(double price) {
             this.price = price;
         }
-        
-        
-    }
+      
     
+   
+}
+
    
 }
 
