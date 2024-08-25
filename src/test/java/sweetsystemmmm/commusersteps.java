@@ -2,8 +2,9 @@ package sweetsystemmmm;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import Mysweetsystem2024.User;
 import io.cucumber.java.en.*;
+import Mysweetsystem2024.MyApplication;
+import Mysweetsystem2024.User;
 public class commusersteps {
 	
 
@@ -14,8 +15,9 @@ public class commusersteps {
 		    private User user;
 		    private String confirmationMessage;
 		    private boolean feedbackRecorded;
-	
-
+		    private  MyApplication app;
+		    public commusersteps (MyApplication app) {
+		    	this.app=app;}
 		    @Given("I am logged in as a registered user")
 		    public void iAmLoggedInAsARegisteredUser() {
 		        user = new User("registeredUser"); // Simulate user login
@@ -90,4 +92,3 @@ public class commusersteps {
 		        assertTrue("Recipe owner should be notified", notification.contains("Recipe owner notified of feedback"));
 		    }
 		}
-
