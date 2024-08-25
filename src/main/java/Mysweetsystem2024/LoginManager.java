@@ -1,44 +1,58 @@
 package Mysweetsystem2024;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import java.util.Map;
 import java.util.Set;
 import java.util.HashSet;
 
 public class LoginManager {
-     private static final Logger logger = Logger.getLogger(LoginManager.class.getName());
     private final Map<String, User> users;
-    private final Set<String> loggedInUsers;
+    private final Set<String> loggedInUsers; // To track logged-in users
+    private MyApplication app;
+    
     private String currentUser;
+
+    
+    
+    
+   
+
     public LoginManager(Map<String, User> users) {
         this.users = users;
         this.loggedInUsers = new HashSet<>();
     }
 
-  public boolean login(String username, String password) {
+    public boolean login(String username, String password) {
         if (validateLogin(username, password)) {
-            this.currentUser = username;
-            logger.log(Level.INFO, "Login successful. Welcome, {0}!", currentUser);
+            this.currentUser = username; // Set the currentUser to the logged-in username
+            System.out.println("Login successful. Welcome, " + currentUser + "!");
             return true;
         } else {
-            logger.log(Level.WARNING, "Login failed. Invalid username or password.");
+            System.out.println("Login failed. Invalid username or password.");
             return false;
         }
     }
-    
+
     private boolean validateLogin(String username, String password) {
         User user = users.get(username);
         return user != null && user.getPassword().equals(password);
     }
 
+    //public String getCurrentUser() {
+      //  return currentUser;
+    //}
+
+    
+    
+
     public boolean logout(String username) {
         if (username == null) {
+        	//System.out.println("Username cannot be null.");
             return false;
         }
         if (loggedInUsers.remove(username)) {
             return true;
         } else {
-            logger.log(Level.WARNING, "User {0} is not logged in.", username);
+            System.out.println("User is not logged in.");
             return false;
         }
     }
@@ -47,3 +61,4 @@ public class LoginManager {
         return loggedInUsers.contains(username);
     }
 }
+
