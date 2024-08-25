@@ -14,9 +14,6 @@ public class ProductMgt {
  private static final Logger logger = Logger.getLogger(ProductMgt.class.getName());
     // Add a new product
     public boolean addProduct(String name, String description, double price) {
-        if (products.containsKey(name)) {
-            return false; 
-        }
         products.put(name, new Product(name, description, price));
         return true;
     }
