@@ -1,9 +1,14 @@
 package Mysweetsystem2024;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Test {
+
+
+	private static final Logger logger = Logger.getLogger(Test.class.getName()); // Logger instance
 	 private boolean adminLoggedIn = false;
 	    private String currentSection = "";
 	    private Map<String, String> reports = new HashMap<>();
@@ -15,22 +20,20 @@ public class Test {
 	        reports.put("User Statistics", "Nablus: 200 users\nJenin: 150 users");
 	    }
 
-	    
-	    public void loginAsAdmin() {
-	       
-	        adminLoggedIn = true;
-	        System.out.println("Admin logged in.");
-	    }
+	public void loginAsAdmin() {
+        adminLoggedIn = true;
+        logger.info("Admin logged in.");
+    }
 
-	    
-	    public void navigateToSection(String section) {
-	        if (adminLoggedIn) {
-	            currentSection = section;
-	            System.out.println("Navigated to: " + section);
-	        } else {
-	            throw new IllegalStateException("Admin not logged in. Please log in first.");
-	        }
-	    }
+	
+ public void navigateToSection(String section) {
+        if (adminLoggedIn) {
+            currentSection = section;
+            logger.info(String.format("Navigated to: %s", section));
+        } else {
+            throw new IllegalStateException("Admin not logged in. Please log in first.");
+        }
+    }
 
 	   
 	    public String requestFinancialReport() {
