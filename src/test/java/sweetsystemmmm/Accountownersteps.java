@@ -6,23 +6,15 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 
 public class Accountownersteps {
-
-
-
-  
     private String businessInformation;
     private boolean detailsUpdatedSuccessfully = false;
     private boolean businessInfoUpdatedSuccessfully = false;
-
- 
 
     @Given("I am on the account management page")
     public void iAmOnTheAccountManagementPage() {
         // Simulate navigation to the account management page
        
-        System.out.println("Navigated to the account management page");
-        
-       
+        System.out.println("Navigated to the account management page"); 
     }
 
     @When("I update my account details with new information")
