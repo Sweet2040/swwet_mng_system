@@ -16,7 +16,7 @@ import Mysweetsystem2024.MyApplication;
 import Mysweetsystem2024.ProductMgt;
 
 public class ProductManagementsteps {
-    private productmgt productManagement;
+    private ProductMgt productManagement;
     private String productName;
     private String productDescription;
     private double productPrice;
@@ -26,7 +26,7 @@ public class ProductManagementsteps {
     MyApplication app;
 
     public ProductManagementsteps(MyApplication app ) {
-        productManagement = new productmgt();
+        productManagement = new ProductMgt();
         this.app=app;
     }
     
