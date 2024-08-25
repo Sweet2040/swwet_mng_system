@@ -2,10 +2,12 @@ package sweetsystemmmm;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
-import Mysweetsystem2024.UserRole;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import Myssweetsystem2024.MyApplication;
+import Myssweetsystem2024.UserRole;
 public class rolesteps {
 	
 
@@ -14,12 +16,13 @@ public class rolesteps {
 	    private String roleString;
 	    private UserRole role;
 	    private Exception exception;
- 
+	    private MyApplication app;
 	    
 	    
-	    public rolesteps() {
-	    	// hi hi
+	    public rolesteps(MyApplication app) {
+	    	this.app=app;
 	    }
+
 	    @Given("a user role string {string}")
 	    public void aUserRoleString(String roleString) {
 	        this.roleString = roleString;
