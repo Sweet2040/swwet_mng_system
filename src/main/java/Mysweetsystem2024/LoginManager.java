@@ -10,12 +10,8 @@ public class LoginManager {
     private final Set<String> loggedInUsers; // To track logged-in users
 
      private static final Logger logger = Logger.getLogger(LoginManager.class.getName());
-    private String currentUser;
-
-    
-    
-    
    
+
 
     public LoginManager(Map<String, User> users) {
         this.users = users;
@@ -24,7 +20,8 @@ public class LoginManager {
 
 public boolean login(String username, String password) {
         if (validateLogin(username, password)) {
-            this.currentUser = username; // Set the currentUser to the logged-in username
+             String currentUser = username;
+             loggedInUsers.add(currentUser);
             logger.log(Level.INFO, "Login successful. Welcome, {0}!", currentUser);
             return true;
         } else {
@@ -33,6 +30,16 @@ public boolean login(String username, String password) {
         }
     }
 
+
+
+
+
+
+
+
+
+
+    
     
     private boolean validateLogin(String username, String password) {
         User user = users.get(username);
