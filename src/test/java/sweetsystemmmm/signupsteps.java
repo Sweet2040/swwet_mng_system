@@ -5,25 +5,25 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import Mysweetsystem2024.MyApplication;
-import Mysweetsystem2024.User;
-import Mysweetsystem2024.UserRole;
-import Mysweetsystem2024.SignupManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import myssweetsystem.MyApplication;
+import myssweetsystem.User;
+import myssweetsystem.UserRole;
+import myssweetsystem.signupmanager;
 
 public class signupsteps {
 
     private MyApplication app;
-    private SignupManager signupManager;
+    private signupmanager signupManager;
     private String currentUsername;
     private String currentPassword;
     private boolean signUpResult;
 
     public signupsteps(MyApplication app) {
         this.app = app;
-        this.signupManager = new SignupManager(app);
+        this.signupManager = new signupmanager(app);
     }
 
     @Given("that the user {string} is not signed up")
@@ -87,7 +87,7 @@ public class signupsteps {
         assertFalse("User should be prompted to try again", signUpResult);
     }
 
-  @Then("the account is not saved in the system")
+    @Then("the account is not saved in the system")
     public void theAccountIsNotSavedInTheSystem() {
         User user = app.getUser(currentUsername);
         
@@ -101,4 +101,3 @@ public class signupsteps {
     }
     
 }
-
